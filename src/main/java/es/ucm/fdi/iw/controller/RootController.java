@@ -39,4 +39,9 @@ public class RootController {
 	public String upload() {
 		return "upload";
 	}
+	
+	@GetMapping("/hola")
+	public String hola() {
+		return "hola";
+	}
 }
