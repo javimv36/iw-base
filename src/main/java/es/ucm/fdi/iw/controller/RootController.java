@@ -44,4 +44,10 @@ public class RootController {
 	public String hola() {
 		return "hola";
 	}
+	
+	@GetMapping("/administrar")
+	public String administrar() {
+		return "administrar";
+	}
+	
 }
