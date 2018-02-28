@@ -44,8 +44,25 @@
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                            <p>Visitar al CEO de IBM.</p>
+                                            <p>Aclarar acuerdo. Proveedor de servicios de cloud coputing con Watson</p>
                                         	<div class="qrcode"></div>
+                                        	<hr>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-cog"></i> 
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Terminado</a>
+                                                    </li>
+                                                    <li><a href="#">No disponible</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Aplazar</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -54,14 +71,14 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Timeline Event</h4>
+                                            <h4 class="timeline-title">Calle de los Ainur 32, Madrid</h4>
                                             <p>
-                                                <small class="text-muted"><i class="fa fa-time"></i> 10:00 - 10:30</small>
+                                                <small class="text-muted"><i class="fa fa-time"></i> 11:00 - 11:30</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                            <p>Almuerzo con el CTO de Telefónica</p>
+                                            <p>No puede ser "Maligno".</p>
                                         	<div class="qrcode"></div>
                                         </div>
                                     </div>
@@ -71,7 +88,7 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Timeline Event</h4>
+                                            <h4 class="timeline-title">Calle de Mordor 666, Madrid</h4>
                                             <p>
                                                 <small class="text-muted"><i class="fa fa-time"></i> 10:00 - 10:30</small>
                                             </p>
@@ -88,9 +105,9 @@
                                     <div class="timeline-panel">
                                    
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Timeline Event</h4>
+                                            <h4 class="timeline-title">Calle de Tolkien 90, Madrid</h4>
                                             <p>
-                                                <small class="text-muted"><i class="fa fa-time"></i> 10:00 - 10:30</small>
+                                                <small class="text-muted"><i class="fa fa-time"></i> 12:00 - 12:30</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
@@ -106,7 +123,7 @@
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">Timeline Event</h4>
                                             <p>
-                                                <small class="text-muted"><i class="fa fa-time"></i> 10:00 - 10:30</small>
+                                                <small class="text-muted"><i class="fa fa-time"></i> 13:00 - 13:30</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
@@ -134,11 +151,13 @@
                                     </div>
                                 </li>
                                 <li>
+                                <div class="timeline-badge"><i class="fa fa-check"></i>
+                                    </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">Timeline Event</h4>
                                             <p>
-                                                <small class="text-muted"><i class="fa fa-time"></i> 10:00 - 10:30</small>
+                                                <small class="text-muted"><i class="fa fa-time"></i> 14:00 - 14:30</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
@@ -154,7 +173,7 @@
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">Timeline Event</h4>
                                             <p>
-                                                <small class="text-muted"><i class="fa fa-time"></i> 10:00 - 10:30</small>
+                                                <small class="text-muted"><i class="fa fa-time"></i> 15:00 - 15:30</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
@@ -176,7 +195,7 @@
 	  var qrs = document.getElementsByClassName("qrcode");
 	  for (i = 0; i < qrs.length; i++) { 
 	   		new QRCode(qrs[i], {
-		    text: "este es el qr de prueba",
+		    text: "prueba para la loca",
 		    width: 128,
 		    height: 128,
 		    colorDark : "#000000",
