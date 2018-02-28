@@ -35,6 +35,7 @@
                                         </div>
                                         <div class="timeline-body">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                        	<div class="qrcode"></div>
                                         </div>
                                     </div>
                                 </li>
@@ -48,6 +49,7 @@
                                         <div class="timeline-body">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                        	<div class="qrcode"></div>
                                         </div>
                                     </div>
                                 </li>
@@ -60,6 +62,7 @@
                                         </div>
                                         <div class="timeline-body">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+ 											<div class="qrcode"></div>                                       
                                         </div>
                                     </div>
                                 </li>
@@ -132,8 +135,55 @@
                     </div>
                     <!-- /.panel -->
                     </div>
-                                <!-- /.col-lg-8 (nested) -->
+                    <!-- /.col-lg-8 (nested) -->
                      <div class="col-lg-4">
+                            <div id="map-panel" class="panel panel-default">
+                            <div class="panel-heading">
+                            <i class="fa fa-comments fa-fw"></i>
+                            Ejemplo gmaps.js
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-refresh fa-fw"></i> Refresh
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-check-circle fa-fw"></i> Available
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-times fa-fw"></i> Busy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-clock-o fa-fw"></i> Away
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+    	                    <div id="map" style="height: 400px;"></div>
+                            <ul id="instructions">
+							</ul>
+                        </div>
+                        <!-- /.panel-body -->
+	              	</div>
+	            	<!-- /.panel #map-panel -->
                     <div class="chat-panel panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-comments fa-fw"></i>
@@ -252,81 +302,52 @@
                         <!-- /.panel-footer -->
                     </div>
                     <!-- /.panel .chat-panel -->
-                     <div id="map-panel" class="panel panel-default">
-                            <div class="panel-heading">
-                            <i class="fa fa-comments fa-fw"></i>
-                            Ejemplo gmaps.js
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-refresh fa-fw"></i> Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-check-circle fa-fw"></i> Available
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-times fa-fw"></i> Busy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-clock-o fa-fw"></i> Away
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                            <div class="panel-body">
-                            
-                            <div id="map" style="height: 400px;"></div>
-                            </div>
-                             <!-- /.panel-body -->
-                </div>
-                     </div>
-                     <!-- /.panel #map-panel -->
-                </div>
-                <!-- /.col-lg-4 -->
-                
-                            </div>
-                            <!-- /.row -->
-            
-        </div>
-        <!-- /#page-wrapper -->
-       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-       <script src="${s}/js/gmaps.js"></script>
-      <script type="text/javascript">
-    var map;
-    $(document).ready(function(){
-      map = new GMaps({
-        el: '#map',
-        lat: -12.043333,
-        lng: -77.028333,
-        zoomControl : true,
-        zoomControlOpt: {
-            style : 'SMALL',
-            position: 'TOP_LEFT'
-        },
-        panControl : false,
-        streetViewControl : false,
-        mapTypeControl: false,
-        overviewMapControl: false
-      });
-    });
-  </script>
+	        	</div>
+	           	<!-- /.col-lg-4 -->
+	       	</div>
+	        <!-- /.row -->
+	   	</div>
+	   	<!-- /#page-wrapper -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+      <script src="${s}/js/gmaps.js"></script>
+	  <script type="text/javascript">
+	    var map;
+	    $(document).ready(function(){
+	      map = new GMaps({
+	        el: '#map',
+	        lat: -12.043333,
+	        lng: -77.028333
+	      });
+	      map.travelRoute({
+	        origin: [-12.044012922866312, -77.02470665341184],
+	        destination: [-12.090814532191756, -77.02271108990476],
+	        travelMode: 'driving',
+	        step: function(e){
+	          $('#instructions').append('<li>'+e.instructions+'</li>');
+	          $('#instructions li:eq('+e.step_number+')').delay(450*e.step_number).fadeIn(200, function(){
+	            map.drawPolyline({
+	              path: e.path,
+	              strokeColor: '#131540',
+	              strokeOpacity: 0.6,
+	              strokeWeight: 6
+	            });  
+	          });
+	        }
+	      });
+	    });
+	  </script>
+	   <script src="${s}/js/qrcode.min.js"></script>
+	  <script type="text/javascript">
+	  var qrs = document.getElementsByClassName("qrcode");
+	  for (i = 0; i < qrs.length; i++) { 
+	  	var qrcode = new QRCode(qrs[i], {
+		    text: "este es el qr de prueba",
+		    width: 128,
+		    height: 128,
+		    colorDark : "#000000",
+		    colorLight : "#ffffff",
+		    correctLevel : QRCode.CorrectLevel.H
+		});
+	  </script>
         <%@ include file="../jspf/pie.jspf"%>
