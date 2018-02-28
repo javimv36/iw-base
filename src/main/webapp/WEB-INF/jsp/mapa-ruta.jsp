@@ -6,8 +6,8 @@
 	
 <div id="map-panel" class="panel panel-default">
                     <div class="panel-heading">
-                    <i class="fa fa-comments fa-fw"></i>
-                    Ejemplo gmaps.js
+                    <i class="fa fa-map-marker fa-fw"></i>
+                    Mejor ruta estimada
                     <div class="btn-group pull-right">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-chevron-down"></i>
@@ -15,7 +15,7 @@
                         <ul class="dropdown-menu slidedown">
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-refresh fa-fw"></i> Refresh
+                                    <i class="fa fa-refresh fa-fw"></i> Reordenar
                                 </a>
                             </li>
                             <li>
@@ -33,12 +33,7 @@
                                     <i class="fa fa-clock-o fa-fw"></i> Away
                                 </a>
                             </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

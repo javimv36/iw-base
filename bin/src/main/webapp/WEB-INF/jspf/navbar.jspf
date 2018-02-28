@@ -1,7 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
@@ -20,7 +19,7 @@
                             <a href="administrar"><i class="fa fa-dashboard fa-fw"></i>Control de rutas</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Planificar ruta<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Planificar ruta<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                         		<li>
                                     <a href="morris.html">Simple</a>
@@ -35,13 +34,13 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-road fa-fw"></i> Administrar rutas</a>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Administrar rutas</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-map-marker fa-fw"></i>Mapa de rutas</a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>Mapa de rutas</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-clock-o fa-fw"></i>Rutas<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Rutas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="panels-wells.html">Más frecuentes</a>
@@ -53,35 +52,21 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i>Páginas<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i>Configuración<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                  	<a href="/">Inicio</a>
+                                    <a href="/">Inicio</a>
                                 </li>
                                 <li>
                                     <a href="login">Login</a>
                                 </li>
-                                <li>
-                                   	<a href="logout">Logout</a>
+                                 <li>
+                                    <a href="logout">Logout</a>
                                 </li>
-                                <li>
-                                  	<a href="admin">Admin</a>
+                                  <li>
+                                    <a href="admin">Admin</a>
                                 </li>
-                                <li>
-                                    <a href="administrar">Control de rutas</a>
-                                </li>
-                                <li>
-                                    <a href="ruta">Ver ruta</a>
-                                </li>
-                                <li>
-                                    <a href="crear_ruta">Crear ruta</a>
-                                </li>
-                                <li>
-                                    <a href="crear_evento">Crear evento</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.npmjs.com/package/latex">Latex npm</a>
-                                </li>
+                                 
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
