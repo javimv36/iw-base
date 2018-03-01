@@ -13,10 +13,45 @@
                                 <div class="col-lg-6">
                                     <form role="form">
                                         <div class="form-group">
-                                            <label>Text Input</label>
+                                            <label>Dirección</label>
                                             <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <p class="help-block">Comprueba que la diracción sea correcta.</p>
                                         </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Motivo</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                          <div class="form-group">
+                                            <label>Contacto</label>
+                                            <input type="tel" class="form-control">
+                                            <p class="help-block">Comprueba que la diracción sea correcta.</p>
+                                        </div>
+                                          <div class="form-group">
+                                            <label>Fecha</label>
+                                            <input type="date" class="form-control">
+                                            <p class="help-block">Este campo se cambiará a un tipo fecha o fecha y hora</p>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Tipo</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Visita
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Libre
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Evento
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <label>Text Input with Placeholder</label>
                                             <input class="form-control" placeholder="Enter text">

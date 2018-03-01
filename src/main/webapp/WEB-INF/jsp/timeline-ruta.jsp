@@ -195,7 +195,7 @@
 	  var qrs = document.getElementsByClassName("qrcode");
 	  for (i = 0; i < qrs.length; i++) { 
 	   		new QRCode(qrs[i], {
-		    text: "prueba para la loca",
+		    text: "prueba de QR generado en OnGo",
 		    width: 128,
 		    height: 128,
 		    colorDark : "#000000",
