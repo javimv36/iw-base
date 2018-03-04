@@ -9,14 +9,14 @@
        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Crear ruta</h1>
+                    <h1 class="page-header">Crear visita</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
                 <div class="row">
                 	<div class="col-lg-8">
-                       	<%@ include file="crear_ruta_form.jsp"%>
+                       	<%@ include file="crear_visita_form.jsp"%>
                     </div>
                     <!-- /.col-lg-8 (nested) -->
                     <div class="col-lg-4">

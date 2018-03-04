@@ -29,24 +29,30 @@
                                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Visita
                                                 </label>
                                             </div>
-                                            <div class="radio">
+                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Libre
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option3">Evento
+                                                </label>
+                                            </div>
+                                             <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Trabajo
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Evento
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option2">Libre
                                                 </label>
                                             </div>
+                                           
                                         </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                        <button type="submit" class="btn btn-default">Guardar</button>
+                                        <button type="reset" class="btn btn-default">Reset</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
-                                    <h1>Informacion visita</h1>
+                                    <h1>Información visita</h1>
                                     <form role="form">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon">@</span>
@@ -60,7 +66,7 @@
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-eur"></i>
                                             </span>
-                                            <input type="text" class="form-control" placeholder="Importe">
+                                            <input type="text" class="form-control" placeholder="Importe estimado">
                                         </div>
                                         <div class="form-group">
                                             <label>Detalles</label>
