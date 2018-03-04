@@ -48,6 +48,11 @@
                                             <p>Aclarar acuerdo. Proveedor de servicios de cloud coputing con Watson</p>
                                         	<div class="qrcode"></div>
                                         	<hr>
+                                        	  <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Importe">
+                                        </div>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
                                                     <i class="fa fa-cog"></i> 
@@ -63,6 +68,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
+                                          
                                         </div>
                                     </div>
                                 </li>
@@ -204,4 +210,10 @@
 		});
 	  }
 	  </script>
+	  
+	  <style>
+	  .qrcode *{
+	  	width:100%;
+	  }
+	  </style>
 	  <!-- Fin scripts QRs -->

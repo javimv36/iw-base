@@ -50,9 +50,9 @@ public class RootController {
 		return "administrar";
 	}
 	
-	@GetMapping("/crear_ruta")
-	public String crearRuta() {
-		return "crear_ruta";
+	@GetMapping("/crear_visita")
+	public String crearVisita() {
+		return "crear_visita";
 	}
 	
 	

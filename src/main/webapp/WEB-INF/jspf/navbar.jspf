@@ -74,11 +74,15 @@
                                     <a href="ruta">Ver ruta</a>
                                 </li>
                                 <li>
-                                    <a href="crear_ruta">Crear ruta</a>
-                                </li>
-                                <li>
                                     <a href="crear_evento">Crear evento</a>
                                 </li>
+                                <li>
+                                    <a href="crear_visita">Crear visita</a>
+                                </li>
+                                <li>
+                                    <a href="crear_ruta">Crear ruta</a>
+                                </li>
+                                
                                 <li>
                                     <a href="https://www.npmjs.com/package/latex">Latex npm</a>
                                 </li>
