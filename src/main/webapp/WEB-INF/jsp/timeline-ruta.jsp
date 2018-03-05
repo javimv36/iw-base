@@ -33,8 +33,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
-                                <li>
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                <li  class="timeline-inverted">
+                                    <div class="timeline-badge info"><i class="fa fa-home"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
@@ -48,22 +48,28 @@
                                             <p>Aclarar acuerdo. Proveedor de servicios de cloud coputing con Watson</p>
                                         	<div class="qrcode"></div>
                                         	<hr>
-                                        	  <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Importe">
-                                        </div>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-file-o"></i>
+	                                            </span>
+	                                            <input type="text" class="form-control" placeholder="Nota sobre la visita">
+                                        	</div>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
+	                                            </span>
+	                                            <input type="number" class="form-control" placeholder="Importe">
+                                        	</div>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="fa fa-cog"></i> 
+                                                    <i class="fa fa-check"></i> 
+                                                    Terminar
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li><a href="#">Terminado</a>
                                                     </li>
+                                                    <li class="divider"></li>
                                                     <li><a href="#">No disponible</a>
                                                     </li>
-                                                    <li class="divider"></li>
                                                     <li><a href="#">Aplazar</a>
                                                     </li>
                                                 </ul>
@@ -72,7 +78,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="timeline-inverted">
+                                <li>
                                     <div class="timeline-badge warning"><i class="fa fa-map-marker"></i>
                                     </div>
                                     <div class="timeline-panel">
@@ -86,11 +92,38 @@
                                             <p>Almuerzo con el CTO de Telefónica</p>
                                             <p>No puede ser "Maligno".</p>
                                         	<div class="qrcode"></div>
+                                        	<hr>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-file-o"></i>
+	                                            </span>
+	                                            <input type="text" class="form-control" placeholder="Nota sobre la visita">
+                                        	</div>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
+	                                            </span>
+	                                            <input type="number" class="form-control" placeholder="Importe">
+                                        	</div>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-check"></i> 
+                                                    Terminar
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Terminado</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">No disponible</a>
+                                                    </li>
+                                                    <li><a href="#">Aplazar</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="timeline-badge danger"><i class="fa fa-qrcode"></i>
+                                    <div class="timeline-badge danger"><i class="fa fa-road"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
@@ -101,12 +134,39 @@
                                         </div>
                                         <div class="timeline-body">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
- 											<div class="qrcode"></div>                                       
+ 											<div class="qrcode"></div> 
+ 											<hr>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-file-o"></i>
+	                                            </span>
+	                                            <input type="text" class="form-control" placeholder="Nota sobre la visita">
+                                        	</div>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
+	                                            </span>
+	                                            <input type="number" class="form-control" placeholder="Importe">
+                                        	</div>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-check"></i> 
+                                                    Terminar
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Terminado</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">No disponible</a>
+                                                    </li>
+                                                    <li><a href="#">Aplazar</a>
+                                                    </li>
+                                                </ul>
+                                            </div>                                      
                                         </div>
                                     </div>
                                 </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge info"><i class="fa fa-question"></i>
+                                <li>
+                                    <div class="timeline-badge info"><i class="fa fa-book"></i>
                                     </div>
                                     <div class="timeline-panel">
                                    
@@ -123,7 +183,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="timeline-badge info"><i class="fa fa-question"></i>
+                                    <div class="timeline-badge warning"><i class="fa fa-camera"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
@@ -177,14 +237,40 @@
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
-                                            <h4 class="timeline-title">Timeline Event</h4>
+                                            <h4 class="timeline-title">Posada del Pony Pisador, Bree</h4>
                                             <p>
                                                 <small class="text-muted"><i class="fa fa-time"></i> 15:00 - 15:30</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel justo eu mi scelerisque vulputate. Aliquam in metus eu lectus aliquet egestas.</p>
+                                            <p>Cena y descanso para el día siguiente.</p>
+                                            <p>Imprimir informe resumen del día.</p>
                                         	<div class="qrcode"></div>
+                                        	<hr>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-file-o"></i>
+	                                            </span>
+	                                            <input type="text" class="form-control" placeholder="Nota sobre la visita">
+                                        	</div>
+                                        	<div class="form-group input-group">
+	                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
+	                                            </span>
+	                                            <input type="number" class="form-control" placeholder="Importe">
+                                        	</div>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                    <i class="fa fa-check"></i> 
+                                                    Generar informe
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Generar y descargar</a>
+                                                    </li>
+                                                    <li><a href="#">Solo generar</a>
+                                                    </li>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -210,10 +296,12 @@
 		});
 	  }
 	  </script>
+	  <!-- Fin scripts QRs -->
 	  
+	  <!-- Estilo para la imagen QR, quitar de aquí lo antes posible -->
 	  <style>
 	  .qrcode *{
-	  	width:100%;
+	  
 	  }
-	  </style>
-	  <!-- Fin scripts QRs -->
+	  </style>	  
+	  <!-- Fin estilo QRs -->
