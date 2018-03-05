@@ -55,6 +55,9 @@ public class RootController {
 		return "crear_visita";
 	}
 	
-	
+	@GetMapping("/visita")
+	public String visita() {
+		return "visita";
+	}
 	
 }

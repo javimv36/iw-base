@@ -76,6 +76,9 @@
                                 <li>
                                     <a href="crear_evento">Crear evento</a>
                                 </li>
+                                 <li>
+                                    <a href="visita">Ver visita</a>
+                                </li>
                                 <li>
                                     <a href="crear_visita">Crear visita</a>
                                 </li>

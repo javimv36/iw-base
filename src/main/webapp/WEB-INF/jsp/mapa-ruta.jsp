@@ -7,7 +7,7 @@
 <div id="map-panel" class="panel panel-default">
                     <div class="panel-heading">
                     <i class="fa fa-map-marker fa-fw"></i>
-                    Mejor ruta estimada
+                    Mapa
                     <div class="btn-group pull-right">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-chevron-down"></i>
