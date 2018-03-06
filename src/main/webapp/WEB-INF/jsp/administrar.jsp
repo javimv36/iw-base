@@ -227,5 +227,6 @@
             </div>
             <!-- /.row -->
         </div>
+        
         <!-- /#page-wrapper -->
         <%@ include file="../jspf/pie.jspf"%>
