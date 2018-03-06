@@ -1,6 +1,5 @@
 package es.ucm.fdi.iw.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -111,5 +110,13 @@ public class Visita {
 
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
+	}
+
+	public TIPO getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TIPO tipo) {
+		this.tipo = tipo;
 	}
 }
