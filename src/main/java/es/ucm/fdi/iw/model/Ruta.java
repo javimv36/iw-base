@@ -1,16 +1,17 @@
 package es.ucm.fdi.iw.model;
 
 import java.util.List;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Date;
 @Entity
+
 public class Ruta {
 	private long id;
-	private List<Visita> visitas;
-	private List<Evento> eventos;
+	//private List<Visita> visitas;
+	//private List<Evento> eventos;
 	private int importeTotal;
 	private Date fecha;
 	
@@ -23,7 +24,7 @@ public class Ruta {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+	/*
 	public List<Visita> getVisitas() {
 		return visitas;
 	}
@@ -31,7 +32,7 @@ public class Ruta {
 	public void setVisitas(List<Visita> visitas) {
 		this.visitas = visitas;
 	}
-	
+	*/
 	public int getImporteTotal() {
 		return importeTotal;
 	}
@@ -47,7 +48,7 @@ public class Ruta {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-
+/*
 	public List<Evento> getEventos() {
 		return eventos;
 	}
@@ -55,5 +56,5 @@ public class Ruta {
 	public void setEventos(List<Evento> eventos) {
 		this.eventos = eventos;
 	}
-	
+	*/
 }

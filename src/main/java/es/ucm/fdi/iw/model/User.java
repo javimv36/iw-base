@@ -1,7 +1,6 @@
 package es.ucm.fdi.iw.model;
 
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +13,12 @@ public class User {
 	private String password;
 	private String roles; // split by , to separate roles
 	private byte enabled;
-	
+	/*
 	private List<Visita> visitas;
 	private List<Evento> eventos;
 	private List<Ruta> rutas;
 	private List<Evento> eventos_asistencia;
-	
+	*/
 	@Id
 	@GeneratedValue
 	public long getId() {
@@ -62,7 +61,7 @@ public class User {
 	public void setEnabled(byte enabled) {
 		this.enabled = enabled;
 	}
-
+/*
 	public List<Visita> getVisitas() {
 		return visitas;
 	}
@@ -93,5 +92,5 @@ public class User {
 
 	public void setEventos_asistencia(List<Evento> eventos_asistencia) {
 		this.eventos_asistencia = eventos_asistencia;
-	}
+	}*/
 }
