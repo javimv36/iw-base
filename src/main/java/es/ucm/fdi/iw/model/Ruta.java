@@ -10,6 +10,7 @@ import java.sql.Date;
 public class Ruta {
 	private long id;
 	private List<Visita> visitas;
+	private List<Evento> eventos;
 	private int importeTotal;
 	private Date fecha;
 	
@@ -45,6 +46,14 @@ public class Ruta {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public List<Evento> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
 	}
 	
 }
