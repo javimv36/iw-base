@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Visita {
@@ -22,6 +24,13 @@ public class Visita {
 	private String nombre;
 	private String nota;
 	private TIPO tipo;
+	private boolean terminada;
+	
+	@ManyToOne
+	private Ruta ruta;
+	
+	@OneToMany
+	private User creador;
 	
 	@Id
 	@GeneratedValue
@@ -119,5 +128,13 @@ public class Visita {
 
 	public void setTipo(TIPO tipo) {
 		this.tipo = tipo;
+	}
+
+	public boolean isTerminada() {
+		return terminada;
+	}
+
+	public void setTerminada(boolean terminada) {
+		this.terminada = terminada;
 	}
 }

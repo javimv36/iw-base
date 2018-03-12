@@ -5,15 +5,23 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+
 import java.sql.Date;
 @Entity
 
 public class Ruta {
 	private long id;
-	//private List<Visita> visitas;
-	//private List<Evento> eventos;
 	private int importeTotal;
 	private Date fecha;
+	
+	@OneToMany(mappedBy="ruta")
+    @OrderBy("id ASC")
+	private List<Visita> visitas;
+	
+	@OneToMany
+	private User creador;
 	
 	@Id
 	@GeneratedValue
@@ -24,15 +32,7 @@ public class Ruta {
 	public void setId(long id) {
 		this.id = id;
 	}
-	/*
-	public List<Visita> getVisitas() {
-		return visitas;
-	}
 	
-	public void setVisitas(List<Visita> visitas) {
-		this.visitas = visitas;
-	}
-	*/
 	public int getImporteTotal() {
 		return importeTotal;
 	}
@@ -48,13 +48,5 @@ public class Ruta {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-/*
-	public List<Evento> getEventos() {
-		return eventos;
-	}
 
-	public void setEventos(List<Evento> eventos) {
-		this.eventos = eventos;
-	}
-	*/
 }
