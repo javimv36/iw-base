@@ -4,6 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Evento {
@@ -14,6 +18,15 @@ public class Evento {
 	private String horaFin;
 	private String info;
 	private int precio;
+
+	@ManyToOne
+	private Ruta ruta;
+	
+	@OneToMany
+	private User creador;
+	
+	@ManyToMany
+	private User asiste;
 	
 	@Id
 	@GeneratedValue

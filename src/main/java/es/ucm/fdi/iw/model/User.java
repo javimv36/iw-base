@@ -5,6 +5,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class User {
@@ -13,12 +16,20 @@ public class User {
 	private String password;
 	private String roles; // split by , to separate roles
 	private byte enabled;
-	/*
-	private List<Visita> visitas;
-	private List<Evento> eventos;
+	
+	//@ManyToOne(mappedBy="creador")
+    @OrderBy("id ASC")
 	private List<Ruta> rutas;
-	private List<Evento> eventos_asistencia;
-	*/
+	
+	@OneToMany(mappedBy="visitas")
+    @OrderBy("id ASC")
+	private List<Visita> visitas;
+	
+	@OneToMany(mappedBy="eventos")
+    @OrderBy("id ASC")
+	private List<Evento> eventos;
+	
+	
 	@Id
 	@GeneratedValue
 	public long getId() {
