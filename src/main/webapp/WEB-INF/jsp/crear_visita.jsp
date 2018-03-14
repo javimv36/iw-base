@@ -17,6 +17,7 @@
                 <div class="row">
                 	<div class="col-lg-8">
                        	<%@ include file="crear_visita_form.jsp"%>
+                       	
                     </div>
                     <!-- /.col-lg-8 (nested) -->
                     <div class="col-lg-4">
