@@ -1,13 +1,12 @@
 package es.ucm.fdi.iw.model;
 
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Evento {
@@ -18,15 +17,9 @@ public class Evento {
 	private String horaFin;
 	private String info;
 	private int precio;
-
-	@ManyToOne
-	private Ruta ruta;
-	
-	@OneToMany
 	private User creador;
-	
-	@ManyToMany
-	private User asiste;
+	private Ruta ruta;
+	private List<User> asistentes;
 	
 	@Id
 	@GeneratedValue
@@ -85,5 +78,31 @@ public class Evento {
 	public void setPrecio(int precio) {
 		this.precio = precio;
 	}	
+
+	@ManyToOne(targetEntity=User.class)
+	public User getCreador() {
+		return creador;
+	}
+
+	public void setCreador(User creador) {
+		this.creador = creador;
+	}
+
+	@ManyToMany(targetEntity=User.class)
+	public List<User> getAsistentes() {
+		return asistentes;
+	}
+
+	public void setAsistentes(List<User> asistentes) {
+		this.asistentes = asistentes;
+	}
 	
+	@ManyToOne(targetEntity=Ruta.class)
+	public Ruta getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(Ruta ruta) {
+		this.ruta = ruta;
+	}
 }

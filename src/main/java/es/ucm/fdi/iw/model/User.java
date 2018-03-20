@@ -1,13 +1,14 @@
 package es.ucm.fdi.iw.model;
 
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 
 @Entity
 public class User {
@@ -16,19 +17,10 @@ public class User {
 	private String password;
 	private String roles; // split by , to separate roles
 	private byte enabled;
-	
-	//@ManyToOne(mappedBy="creador")
-    @OrderBy("id ASC")
 	private List<Ruta> rutas;
-	
-	@OneToMany(mappedBy="visitas")
-    @OrderBy("id ASC")
 	private List<Visita> visitas;
-	
-	@OneToMany(mappedBy="eventos")
-    @OrderBy("id ASC")
 	private List<Evento> eventos;
-	
+	private List<Evento> asisteEventos;
 	
 	@Id
 	@GeneratedValue
@@ -72,7 +64,9 @@ public class User {
 	public void setEnabled(byte enabled) {
 		this.enabled = enabled;
 	}
-/*
+
+	@OneToMany(targetEntity=Visita.class)
+	@JoinColumn(name="id_visita")
 	public List<Visita> getVisitas() {
 		return visitas;
 	}
@@ -81,6 +75,8 @@ public class User {
 		this.visitas = visitas;
 	}
 
+	@OneToMany(targetEntity=Evento.class)
+	@JoinColumn(name="id_evento")
 	public List<Evento> getEventos() {
 		return eventos;
 	}
@@ -89,6 +85,9 @@ public class User {
 		this.eventos = eventos;
 	}
 
+
+	@OneToMany(targetEntity=Ruta.class)
+	@JoinColumn(name="id_ruta")
 	public List<Ruta> getRutas() {
 		return rutas;
 	}
@@ -97,11 +96,13 @@ public class User {
 		this.rutas = rutas;
 	}
 
-	public List<Evento> getEventos_asistencia() {
-		return eventos_asistencia;
+	@ManyToMany(targetEntity=Evento.class)
+	@JoinColumn(name="id_asistente")
+	public List<Evento> getAsisteEventos() {
+		return asisteEventos;
 	}
 
-	public void setEventos_asistencia(List<Evento> eventos_asistencia) {
-		this.eventos_asistencia = eventos_asistencia;
-	}*/
+	public void setAsisteEventos(List<Evento> asisteEventos) {
+		this.asisteEventos = asisteEventos;
+	}
 }
