@@ -1,26 +1,22 @@
 package es.ucm.fdi.iw.model;
 
+import java.sql.Date;
 import java.util.List;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-
-import java.sql.Date;
 @Entity
 
 public class Ruta {
 	private long id;
 	private int importeTotal;
 	private Date fecha;
-	
-	@OneToMany(mappedBy="ruta")
-    @OrderBy("id ASC")
 	private List<Visita> visitas;
-	
-	@OneToMany
+	private List<Evento> eventos;
 	private User creador;
 	
 	@Id
@@ -49,4 +45,32 @@ public class Ruta {
 		this.fecha = fecha;
 	}
 
+	@ManyToOne(targetEntity=User.class)
+	public User getCreador() {
+		return creador;
+	}
+
+	public void setCreador(User creador) {
+		this.creador = creador;
+	}
+
+	@OneToMany(targetEntity=Visita.class)
+	@JoinColumn(name="id_visita")
+	public List<Visita> getVisitas() {
+		return visitas;
+	}
+
+	public void setVisitas(List<Visita> visitas) {
+		this.visitas = visitas;
+	}
+	
+	@OneToMany(targetEntity=Evento.class)
+	@JoinColumn(name="id_evento")
+	public List<Evento> getEventos() {
+		return eventos;
+	}
+
+	public void setEventos(List<Evento> eventos) {
+		this.eventos = eventos;
+	}
 }
