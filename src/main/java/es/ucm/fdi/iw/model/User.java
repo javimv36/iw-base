@@ -97,7 +97,6 @@ public class User {
 	}
 
 	@ManyToMany(targetEntity=Evento.class)
-	@JoinColumn(name="id_asistente")
 	public List<Evento> getAsisteEventos() {
 		return asisteEventos;
 	}
