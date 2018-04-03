@@ -11,7 +11,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form action="/addVisita" method="post" role="form">
                                         <div class="form-group has-warning">
                                             <label>Dirección</label>
                                             <input class="form-control">
@@ -46,6 +46,8 @@
                                             </div>
                                            
                                         </div>
+					            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                        
                                         <button type="submit" class="btn btn-default">Guardar</button>
                                         <button type="reset" class="btn btn-default">Reset</button>
                                     </form>

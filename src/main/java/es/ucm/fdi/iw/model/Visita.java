@@ -21,7 +21,7 @@ public class Visita {
 	private int telefono;
 	private String nombre;
 	private String nota;
-	private TIPO tipo;
+	private String tipo;
 	private boolean terminada;
 	private Ruta ruta;
 	private User creador;
@@ -116,11 +116,11 @@ public class Visita {
 		this.telefono = telefono;
 	}
 
-	public TIPO getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(TIPO tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
