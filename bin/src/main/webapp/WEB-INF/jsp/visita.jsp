@@ -9,19 +9,18 @@
        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Panel principal</h1>
+                    <h1 class="page-header">Ver visita</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
                 <div class="row">
                 	<div class="col-lg-8">
-                       	<%@ include file="timeline-ruta.jsp"%>
+                       	<%@ include file="ver_visita.jsp"%>
                     </div>
                     <!-- /.col-lg-8 (nested) -->
                     <div class="col-lg-4">
 	  					<%@ include file="mapa-ruta.jsp"%>
-	            		<%@ include file="chat.jsp"%>
               		</div>
 	           	<!-- /.col-lg-4 -->
 	       	</div>
