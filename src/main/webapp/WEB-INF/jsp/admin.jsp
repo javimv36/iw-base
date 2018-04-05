@@ -4,41 +4,27 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
-<%@ include file="../jspf/header.jspf"%>
-
-<div class="starter-template">
-	<h1>Admin</h1>
-	<p class="lead">Información muy confidencial</p>
-
-	<hr/>
-
-	<form action="/admin/addUser" method="post">
-		<label for="login">login<input name="login"/></label>
-		<label for="password">password<input type="password" name="password"/></label>
-		<label for="isAdmin">is admin?<input type="checkbox" name="isAdmin"></label>
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            
-            <div class="form-actions">
-                <button type="submit" class="btn">Create user</button>
+<%@ include file="../jspf/cabecera.jspf"%>
+<%@ include file="../jspf/navbar.jspf"%>
+       <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Administracion</h1>
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
-	</form>
-	
-	<hr/>
-	
-	<table>
-	<thead>
-	<tr><th>id<th>login<th>roles</tr>
-	</thead>
-	<tbody>
-	<c:forEach items="${users}" var="u">
-		<tr>
-		<td>${u.id}<td>${u.login}<td>${u.roles}
-		</tr>	
-	</c:forEach>
-	</tbody>
-	</table>
-
-	<%@ include file="../jspf/authinfo.jspf"%>		
-</div>
-
-<%@ include file="../jspf/footer.jspf"%>
+            <!-- /.row -->
+                <div class="row">
+                	<div class="col-lg-8">
+                       	<%@ include file="admin-panel.jsp"%>
+                    </div>
+                    <!-- /.col-lg-8 (nested) -->
+                    <div class="col-lg-4">
+                    	<%@ include file="admin-list.jsp"%>
+              		</div>
+	           	<!-- /.col-lg-4 -->
+	       	</div>
+	        <!-- /.row -->
+	   	</div>
+	   	<!-- /#page-wrapper -->
+	    <%@ include file="../jspf/pie.jspf"%>

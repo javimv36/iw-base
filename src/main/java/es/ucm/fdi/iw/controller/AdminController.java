@@ -58,11 +58,11 @@ public class AdminController {
 		m.addAttribute("users", entityManager
 				.createQuery("select u from User u").getResultList());
 		
+		m.addAttribute("visitas", entityManager
+				.createQuery("select v from Visita v").getResultList());
+		
 		return "admin";	
 	}
-
-
-	
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	@Transactional

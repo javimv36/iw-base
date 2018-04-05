@@ -16,6 +16,19 @@
             <!-- /.row -->
                 <div class="row">
                 	<div class="col-lg-8">
+		            	<hr/>				
+						<table>
+						<thead>
+						<tr><th>id<th>direccion<th>fecha</tr>
+						</thead>
+						<tbody>
+						<c:forEach items="${visitas}" var="v">
+							<tr>
+							<td>${v.id}<td>${v.direccion}<td>${v.fecha}
+							</tr>	
+						</c:forEach>
+						</tbody>
+						</table>
                        	<%@ include file="ver_visita.jsp"%>
                     </div>
                     <!-- /.col-lg-8 (nested) -->

@@ -68,7 +68,10 @@ public class RootController {
 	}
 	
 	@GetMapping("/visita")
-	public String visita() {
+	public String visita(Model m) {
+		m.addAttribute("visitas", entityManager
+				.createQuery("select v from Visita v").getResultList());
+		
 		return "visita";
 	}
 	
@@ -78,21 +81,24 @@ public class RootController {
 			@RequestParam String direccion,
 			@RequestParam String fecha,
 			@RequestParam String tipo,
-			@RequestParam String nombre,
-			@RequestParam int tel,
-			@RequestParam int importeEstimado,
-			@RequestParam String detalles
-			) {
+			@RequestParam (required=false) String nombre,
+			@RequestParam (required=false) int tel,
+			@RequestParam (required=false) int importeEstimado,
+			@RequestParam (required=false) String detalles
+			)
+	{	
+		//creo el objeto visita y le damos valores
 		Visita v = new Visita();
 		v.setDireccion(direccion);
 		v.setFecha(fecha);
 		v.setTipo(tipo);
-		v.setNombre(nombre);
+		v.setNombre("on".equals(nombre) ? nombre : ""); //Asegurando que los campos vacios no afecten
 		v.setTelefono(tel);
 		v.setImporteEstimado(importeEstimado);
 		v.setDetalles(detalles);
-		
+		//inserto el objeto en la base de datos
 		entityManager.persist(v);
-		return "index";
+		//redirecciona a index
+		return "home";
 	}
 }
