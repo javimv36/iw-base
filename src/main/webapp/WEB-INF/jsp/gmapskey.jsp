@@ -4,4 +4,4 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBJqIOUE5FgVsLd5VUHGeX_s5EB_vGdxXg"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBQd6V56jjg2gWVOy9c25DZ3sDye7tq1wU"></script>

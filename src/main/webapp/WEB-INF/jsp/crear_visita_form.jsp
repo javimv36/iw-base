@@ -14,8 +14,9 @@
                                 	<div class="col-lg-6">
                                         <div class="form-group has-warning">
                                             <label>Dirección</label>
-                                            <input type="text" name="direccion" class="form-control">
+                                            <input type="text" name="direccion" id="direccion" class="form-control">
                                             <p class="help-block">Comprueba que la diracción sea correcta.</p>
+											<input type="button" onclick="buscaDireccion()" class="btn" value="Comprobar" />                                                 
                                         </div>
                                         <div class="form-group has-warning">
                                             <label>Fecha</label>
