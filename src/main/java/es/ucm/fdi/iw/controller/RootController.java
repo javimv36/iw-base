@@ -67,6 +67,16 @@ public class RootController {
 		return "crear_visita";
 	}
 	
+	@GetMapping("/crear_evento")
+	public String crearEvento() {
+		return "crear_evento";
+	}
+	
+	@GetMapping("/crear_ruta")
+	public String crearRuta() {
+		return "crear_ruta";
+	}
+	
 	@GetMapping("/visita")
 	public String visita(Model m) {
 		m.addAttribute("visitas", entityManager
