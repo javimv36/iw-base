@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.ucm.fdi.iw.model.Evento;
 import es.ucm.fdi.iw.model.Visita;
 
 @Controller	
@@ -111,4 +112,25 @@ public class RootController {
 		//redirecciona a index
 		return "home";
 	}
+	
+	@RequestMapping(value = "/addEvento", method = RequestMethod.POST)
+	@Transactional
+	public String addEvento(
+			@RequestParam String direccion,
+			@RequestParam String fecha,
+			@RequestParam String horaIni,
+			@RequestParam String horaFin,
+			@RequestParam String info,
+			@RequestParam int precio
+			)
+	{
+		Evento e = new Evento();
+		e.setDireccion(direccion);
+		e.setFecha(fecha);
+		e.setHoraIni(horaIni);
+		e.setHoraFin(horaFin);
+		e.setInfo(info);		
+		return "home";
+	}
+	
 }
