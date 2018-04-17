@@ -65,7 +65,7 @@
                                             </span>
                                             <input type="tel" name="tel" class="form-control" placeholder="Teléfono">
                                         </div>
-                                        <div class="form-group input-group">
+                                        <div class="form-group input-group has-warning">
                                             <span class="input-group-addon"><i class="fa fa-eur"></i>
                                             </span>
                                             <input type="text" name="importeEstimado" class="form-control" placeholder="Importe estimado">

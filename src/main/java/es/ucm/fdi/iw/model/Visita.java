@@ -4,8 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="buscaVisita",
+	query="select v from Visita v where v.id = :vis")
+	})
 public class Visita {
 	private enum TIPO {
 		EVENTO, LIBRE, TRABAJO, VISITA
@@ -18,7 +24,7 @@ public class Visita {
 	private String detalles;
 	private int importeEstimado;
 	private int importeFinal;
-	private int telefono;
+	private String telefono;
 	private String nombre;
 	private String nota;
 	private String tipo;
@@ -108,11 +114,11 @@ public class Visita {
 		this.nota = nota;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
@@ -149,4 +155,5 @@ public class Visita {
 	public void setRuta(Ruta ruta) {
 		this.ruta = ruta;
 	}
+	
 }

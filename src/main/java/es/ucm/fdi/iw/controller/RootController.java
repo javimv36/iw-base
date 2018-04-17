@@ -3,14 +3,17 @@ package es.ucm.fdi.iw.controller;
 import java.security.Principal;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,11 +81,15 @@ public class RootController {
 		return "crear_ruta";
 	}
 	
-	@GetMapping("/visita")
-	public String visita(Model m) {
-		m.addAttribute("visitas", entityManager
-				.createQuery("select v from Visita v").getResultList());
-		
+	@RequestMapping(path="/visita/{v}", method = RequestMethod.GET)
+	public String visita(@PathVariable @NumberFormat long v, Model m) {
+		Visita vis = null;
+		try {
+			vis=(Visita)entityManager.createNamedQuery("buscaVisita").setParameter("vis", v).getSingleResult();
+		}catch (NoResultException e) {
+			return "403";
+		}
+		m.addAttribute("visita", vis);
 		return "visita";
 	}
 	
@@ -93,7 +100,7 @@ public class RootController {
 			@RequestParam String fecha,
 			@RequestParam String tipo,
 			@RequestParam (required=false) String nombre,
-			@RequestParam (required=false) int tel,
+			@RequestParam (required=false) String tel,
 			@RequestParam (required=false) int importeEstimado,
 			@RequestParam (required=false) String detalles
 			)
@@ -103,10 +110,10 @@ public class RootController {
 		v.setDireccion(direccion);
 		v.setFecha(fecha);
 		v.setTipo(tipo);
-		v.setNombre("on".equals(nombre) ? nombre : ""); //Asegurando que los campos vacios no afecten
-		v.setTelefono(tel);
+		v.setNombre(!"".equals(nombre) ? nombre : ""); //Asegurando que los campos vacios no afecten
+		v.setTelefono(!"".equals(tel) ? tel : "");
 		v.setImporteEstimado(importeEstimado);
-		v.setDetalles(detalles);
+		v.setDetalles(!"".equals(detalles) ? detalles : "");
 		//inserto el objeto en la base de datos
 		entityManager.persist(v);
 		//redirecciona a index

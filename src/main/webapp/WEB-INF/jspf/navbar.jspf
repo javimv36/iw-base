@@ -5,7 +5,7 @@
 <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
+                        <!-- <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Buscar...">
                                 <span class="input-group-btn">
@@ -14,34 +14,39 @@
                                 </button>
                             </span>
                             </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="administrar"><i class="fa fa-dashboard fa-fw"></i>Control de rutas</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Planificar ruta<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                        		<li>
-                                    <a href="morris.html">Simple</a>
+                        		 <li>
+                                    <a href="crear_evento">Crear evento</a>
                                 </li>
-                                <li>
-                                    <a href="flot.html">Múltiple</a>
+                                 <li>
+                                    <a href="crear_visita">Crear visita</a>
                                 </li>
-                                <li>
-                                    <a href="morris.html">Evento público</a>
+                                 <li>
+                                    <a href="crear_ruta">Crear ruta</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-road fa-fw"></i> Administrar rutas</a>
+                            <a href="administrar"><i class="fa fa-dashboard fa-fw"></i>Control de rutas</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-map-marker fa-fw"></i>Mapa de rutas</a>
+                            <a href="visitas_user"><i class="fa fa-road fa-fw"></i>Mis vistas</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-clock-o fa-fw"></i>Rutas<span class="fa arrow"></span></a>
+                            <a href="eventos_asist"><i class="fa fa-map-marker fa-fw"></i>Asistencia a eventos</a>
+                        </li>
+                        <li>
+                            <a href="eventos_public"><i class="fa fa-map-marker fa-fw"></i>Eventos públicos</a>
+                        </li>
+                        <li>
+                            <a href="eventos_user"><i class="fa fa-map-marker fa-fw"></i>Eventos creados</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-clock-o fa-fw"></i>Mis rutas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="panels-wells.html">Más frecuentes</a>
@@ -56,15 +61,6 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i>Páginas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                  	<a href="/">Inicio</a>
-                                </li>
-                                <li>
-                                    <a href="login">Login</a>
-                                </li>
-                                <li>
-                                   	<a href="logout">Logout</a>
-                                </li>
-                                <li>
                                   	<a href="admin">Admin</a>
                                 </li>
                                 <li>
@@ -73,17 +69,8 @@
                                 <li>
                                     <a href="ruta">Ver ruta</a>
                                 </li>
-                                <li>
-                                    <a href="crear_evento">Crear evento</a>
-                                </li>
                                  <li>
                                     <a href="visita">Ver visita</a>
-                                </li>
-                                <li>
-                                    <a href="crear_visita">Crear visita</a>
-                                </li>
-                                <li>
-                                    <a href="crear_ruta">Crear ruta</a>
                                 </li>
                                 
                                 <li>

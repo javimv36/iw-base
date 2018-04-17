@@ -16,7 +16,8 @@
             <!-- /.row -->
                 <div class="row">
                 	<div class="col-lg-8">
-		            	<hr/>				
+		            	<hr/>	
+		            			<h1>${vis.direccion}	</h1>
 						<table>
 						<thead>
 						<tr><th>id<th>direccion<th>fecha</tr>
