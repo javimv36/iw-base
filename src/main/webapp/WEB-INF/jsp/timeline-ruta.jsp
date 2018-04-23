@@ -33,6 +33,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <ul class="timeline">
+                                <%@ include file="timeline_visita.jsp"%>
                                 <li  class="timeline-inverted">
                                     <div class="timeline-badge info"><i class="fa fa-home"></i>
                                     </div>
@@ -286,8 +287,9 @@
 	  <script type="text/javascript">
 	  var qrs = document.getElementsByClassName("qrcode");
 	  for (i = 0; i < qrs.length; i++) { 
+		  	console.log(qrs[i]);
 	   		new QRCode(qrs[i], {
-		    text: "prueba de QR generado en OnGo",
+		    text: qrs[i].getAttribute("href"),
 		    width: 128,
 		    height: 128,
 		    colorDark : "#000000",

@@ -19,31 +19,31 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Planificar ruta<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                         		 <li>
-                                    <a href="crear_evento">Crear evento</a>
+                                    <a href="/crear_evento">Crear evento</a>
                                 </li>
                                  <li>
-                                    <a href="crear_visita">Crear visita</a>
+                                    <a href="/crear_visita">Crear visita</a>
                                 </li>
                                  <li>
-                                    <a href="crear_ruta">Crear ruta</a>
+                                    <a href="/crear_ruta">Crear ruta</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="administrar"><i class="fa fa-dashboard fa-fw"></i>Control de rutas</a>
+                            <a href="/administrar"><i class="fa fa-dashboard fa-fw"></i>Control de rutas</a>
                         </li>
                         <li>
-                            <a href="visitas_user"><i class="fa fa-road fa-fw"></i>Mis vistas</a>
+                            <a href="/visitas_user"><i class="fa fa-road fa-fw"></i>Mis vistas</a>
                         </li>
                         <li>
-                            <a href="eventos_asist"><i class="fa fa-map-marker fa-fw"></i>Asistencia a eventos</a>
+                            <a href="/eventos_asist"><i class="fa fa-map-marker fa-fw"></i>Asistencia a eventos</a>
                         </li>
                         <li>
-                            <a href="eventos_public"><i class="fa fa-map-marker fa-fw"></i>Eventos públicos</a>
+                            <a href="/eventos_public"><i class="fa fa-map-marker fa-fw"></i>Eventos públicos</a>
                         </li>
                         <li>
-                            <a href="eventos_user"><i class="fa fa-map-marker fa-fw"></i>Eventos creados</a>
+                            <a href="/eventos_user"><i class="fa fa-map-marker fa-fw"></i>Eventos creados</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-clock-o fa-fw"></i>Mis rutas<span class="fa arrow"></span></a>
@@ -61,16 +61,16 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i>Páginas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                  	<a href="admin">Admin</a>
+                                  	<a href="/admin">Admin</a>
                                 </li>
                                 <li>
-                                    <a href="administrar">Control de rutas</a>
+                                    <a href="/administrar">Control de rutas</a>
                                 </li>
                                 <li>
-                                    <a href="ruta">Ver ruta</a>
+                                    <a href="/ruta">Ver ruta</a>
                                 </li>
                                  <li>
-                                    <a href="visita">Ver visita</a>
+                                    <a href="/visita">Ver visita</a>
                                 </li>
                                 
                                 <li>

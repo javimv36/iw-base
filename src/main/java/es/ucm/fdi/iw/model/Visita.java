@@ -9,8 +9,9 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name="buscaVisita",
-	query="select v from Visita v where v.id = :vis")
+	@NamedQuery(
+			name="buscaVisita",
+			query="select v from Visita v where v.id = :vis")
 	})
 public class Visita {
 	private enum TIPO {
