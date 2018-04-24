@@ -17,6 +17,7 @@
                                     <p>${visita.getFecha()}</p>
                                     <label>Hora</label>
                                      <p>${visita.getHoraIni()}</p>
+                                     <div class="qrcode" href="${visita.getDetalles()}"></div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
@@ -26,7 +27,7 @@
                                   	<p>${visita.getImporteEstimado()}€</p>
                                     <label>Detalles</label>
                                     <p>${visita.getDetalles()}</p>
-                                    <div class="qrcode" href="${visita.getDetalles()}"></div>
+                                    
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>

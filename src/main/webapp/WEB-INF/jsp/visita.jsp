@@ -27,19 +27,7 @@
 	  					<!-- Scripts necesarios para generar QRs --> 	
 					  	<script src="${s}/js/qrcode.min.js"></script>
 					  	<script type="text/javascript">
-					    	
 					  		buscaDireccionDiv();
-					  		url=$('#direccion').attr('href');
-					  		var qrs = document.getElementsByClassName("qrcode");
-					   		new QRCode(qrs[0], {
-						    text: 'http://google.com/maps/bylatlng?' + url,
-						    width: 128,
-						    height: 128,
-						    colorDark : "#000000",
-						    colorLight : "#ffffff",
-						    correctLevel : QRCode.CorrectLevel.H
-					   		});
-					  	
 					  	</script>
 					  	<!-- Fin scripts QRs -->
               		</div>

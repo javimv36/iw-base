@@ -8,34 +8,7 @@
                     <div class="panel-heading">
                     <i class="fa fa-map-marker fa-fw"></i>
                     Mapa
-                    <div class="btn-group pull-right">
-                        <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-chevron-down"></i>
-                        </button>
-                        <ul class="dropdown-menu slidedown">
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-refresh fa-fw"></i> Reordenar
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-check-circle fa-fw"></i> Available
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-times fa-fw"></i> Busy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-clock-o fa-fw"></i> Away
-                                </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
+                   
                 </div>
                 <!-- /.panel-heading -->
 			    <div class="panel-body">
@@ -84,8 +57,9 @@
               }
             });
       }
+      
 	  function buscaDireccionDiv(){
-    	  
+		  var url="";
     	  GMaps.geocode({
               address: $('#direccion').html(),
               callback: function(results, status){
@@ -96,12 +70,22 @@
                     lat: latlng.lat(),
                     lng: latlng.lng()
                   });
-                  url= 'lat=' + latlng.lat() + '&lng=' + latlng.lng();
-                  $('#direccion').attr("href", url);
+                  url= latlng.lat() + ',' + latlng.lng();
+                  $('#direccion').data("coords", url);
                 }
+                
+		    	var qrs = document.getElementsByClassName("qrcode");
+		   		new QRCode(qrs[0], {
+				    text: 'http://google.com/maps/search/?api=1&query='+ $('#direccion').data("coords") ,
+				    width: 256,
+				    height: 256,
+				    colorDark : "#000000",
+				    colorLight : "#ffffff",
+				    correctLevel : QRCode.CorrectLevel.H
+		   		});
               }
             });
-    	  
+    	  return url;
       }
   </script>
 <!-- Fin scripts gmaps -->
