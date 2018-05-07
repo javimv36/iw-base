@@ -33,4 +33,18 @@
 	</tbody>
 	</table>
 <hr/>
+<h3>Eventos</h3>
+	<table>
+	<thead>
+	<tr><th>id<th>direccion<th>precio</tr>
+	</thead>
+	<tbody>
+	<c:forEach items="${eventos}" var="e">
+		<tr>
+		<td>${e.id}<td>${e.direccion}<td>${e.precio}
+		</tr>	
+	</c:forEach>
+	</tbody>
+	</table>
+<hr/>
 	<%@ include file="../jspf/authinfo.jspf"%>		

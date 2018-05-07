@@ -1,9 +1,11 @@
 package es.ucm.fdi.iw.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.ucm.fdi.iw.model.Evento;
+import es.ucm.fdi.iw.model.User;
 import es.ucm.fdi.iw.model.Visita;
 
 @Controller	
@@ -29,15 +32,22 @@ public class RootController {
 	
 	private static Logger log = Logger.getLogger(RootController.class);
 	
+	private void addUserToSession(HttpSession session, Principal principal) {
+		session.setAttribute("user", entityManager.createQuery(
+				"from User where login = :login", User.class)
+	                            .setParameter("login", principal.getName())
+	                            .getSingleResult());
+	}
+	
     @ModelAttribute
     public void addAttributes(Model model) {
         model.addAttribute("s", "/static");
     }
 
 	@GetMapping({"/", "/index"})
-	public String root(Model model, Principal principal) {
+	public String root(Model model, Principal principal, HttpSession session) {
 		log.info(principal.getName() + " de tipo " + principal.getClass());		
-		// org.springframework.security.core.userdetails.User
+		addUserToSession(session, principal);
 		return "home";
 	}
 	
@@ -59,6 +69,24 @@ public class RootController {
 	@GetMapping("/hola")
 	public String hola() {
 		return "hola";
+	}
+	
+	@GetMapping({"/mis_visitas", "misvisitas", "mis-visitas", "misVisitas"})
+	public String misVisitas(Model m,  HttpSession session) {
+		User usuario = null;
+		try {
+			usuario=(User)entityManager.createNamedQuery("usuarioId").setParameter("idUser", session.getAttribute("user")).getSingleResult();
+		}catch (NoResultException e) {
+			return "403";
+		}
+		m.addAttribute("usuario", usuario);
+		
+		return "mis_visitas";
+	}
+	
+	@GetMapping({"/mis_eventos", "miseventos", "mis-eventos"})
+	public String misEventos() {
+		return "mis_eventos";
 	}
 	
 	@GetMapping("/administrar")
@@ -91,6 +119,18 @@ public class RootController {
 		}
 		m.addAttribute("visita", vis);
 		return "visita";
+	}
+	
+	@RequestMapping(path="/evento/{e}", method = RequestMethod.GET)
+	public String evento(@PathVariable @NumberFormat long e, Model m) {
+		Evento eve = null;
+		try {
+			eve=(Evento)entityManager.createNamedQuery("buscaEvento").setParameter("eve", e).getSingleResult();
+		}catch (NoResultException ex) {
+			return "403";
+		}
+		m.addAttribute("evento", eve);
+		return "evento";
 	}
 	
 	@RequestMapping(value = "/addVisita", method = RequestMethod.POST)

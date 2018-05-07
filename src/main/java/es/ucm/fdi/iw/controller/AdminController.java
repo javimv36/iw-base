@@ -61,6 +61,9 @@ public class AdminController {
 		m.addAttribute("visitas", entityManager
 				.createQuery("select v from Visita v").getResultList());
 		
+		m.addAttribute("eventos", entityManager
+				.createQuery("select e from Evento e").getResultList());
+		
 		return "admin";	
 	}
 	

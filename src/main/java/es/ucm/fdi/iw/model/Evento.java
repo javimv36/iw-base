@@ -7,8 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(
+			name="buscaEvento",
+			query="select e from Evento e where e.id = :eve")
+	})
 public class Evento {
 	private long id;
 	private String direccion;
