@@ -71,20 +71,16 @@ public class RootController {
 		return "hola";
 	}
 	
-	@GetMapping({"/mis_visitas", "misvisitas", "mis-visitas", "misVisitas"})
+	@GetMapping({"/mis_visitas", "/misvisitas", "/mis-visitas", "/misVisitas"})
 	public String misVisitas(Model m,  HttpSession session) {
-		User usuario = null;
-		try {
-			usuario=(User)entityManager.createNamedQuery("usuarioId").setParameter("idUser", session.getAttribute("user")).getSingleResult();
-		}catch (NoResultException e) {
-			return "403";
+		User u = entityManager.find(User.class, ((User)session.getAttribute("user")).getId());
+		for (Visita v : u.getVisitas()) {
+			log.info("el señor " + u.getId() + " quiere visitar " + v.getId());
 		}
-		m.addAttribute("usuario", usuario);
-		
 		return "mis_visitas";
 	}
 	
-	@GetMapping({"/mis_eventos", "miseventos", "mis-eventos"})
+	@GetMapping({"/mis_eventos", "/miseventos", "/mis-eventos", "/misEventos"})
 	public String misEventos() {
 		return "mis_eventos";
 	}
