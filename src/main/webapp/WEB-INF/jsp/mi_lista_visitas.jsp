@@ -11,9 +11,9 @@
 	<tr><th>id<th>dirección<th>fecha</tr>
 	</thead>
 	<tbody>
-	<c:forEach items="${user.visitas}" var="v">
+	<c:forEach items="${visitas}" var="v">
 		<tr>
-		<td>${v.id}<td>${v.direccion}
+		<td>${v.id}<td><a href="/visita/${v.id}">${v.direccion}</a>
 		</tr>	
 	</c:forEach>
 	</tbody>

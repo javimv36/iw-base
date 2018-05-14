@@ -22,6 +22,9 @@
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
                                     <h1>Eventos</h1>
+                                   	<%@ include file="mi_lista_eventos.jsp"%>
+                                    <h1>Visitas</h1>
+                                    <%@ include file="mi_lista_visitas.jsp"%>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                  </form>

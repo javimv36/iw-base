@@ -73,8 +73,8 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	@OneToMany(targetEntity=Visita.class, fetch = FetchType.EAGER)
-	@JoinColumn(name="id_visita")
+	@OneToMany(targetEntity=Visita.class)
+	@JoinColumn(name="creador_id")
 	public List<Visita> getVisitas() {
 		return visitas;
 	}
@@ -83,8 +83,8 @@ public class User {
 		this.visitas = visitas;
 	}
 
-	@OneToMany(targetEntity=Evento.class)
-	@JoinColumn(name="id_evento")
+	@OneToMany(targetEntity=Evento.class, fetch = FetchType.EAGER)
+	@JoinColumn(name="creador_id")
 	public List<Evento> getEventos() {
 		return eventos;
 	}
@@ -95,7 +95,7 @@ public class User {
 
 
 	@OneToMany(targetEntity=Ruta.class)
-	@JoinColumn(name="id_ruta")
+	@JoinColumn(name="creador_id")
 	public List<Ruta> getRutas() {
 		return rutas;
 	}

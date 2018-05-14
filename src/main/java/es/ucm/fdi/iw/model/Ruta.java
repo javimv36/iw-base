@@ -55,7 +55,7 @@ public class Ruta {
 	}
 
 	@OneToMany(targetEntity=Visita.class)
-	@JoinColumn(name="id_visita")
+	@JoinColumn(name="ruta_id")
 	public List<Visita> getVisitas() {
 		return visitas;
 	}
@@ -65,7 +65,7 @@ public class Ruta {
 	}
 	
 	@OneToMany(targetEntity=Evento.class)
-	@JoinColumn(name="id_evento")
+	@JoinColumn(name="ruta_id")
 	public List<Evento> getEventos() {
 		return eventos;
 	}

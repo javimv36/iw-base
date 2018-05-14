@@ -73,15 +73,18 @@ public class RootController {
 	
 	@GetMapping({"/mis_visitas", "/misvisitas", "/mis-visitas", "/misVisitas"})
 	public String misVisitas(Model m,  HttpSession session) {
-		User u = entityManager.find(User.class, ((User)session.getAttribute("user")).getId());
-		for (Visita v : u.getVisitas()) {
-			log.info("el señor " + u.getId() + " quiere visitar " + v.getId());
-		}
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
+		
+		List<Visita> visitas = u.getVisitas();
+		m.addAttribute("visitas", visitas);
+		log.info("Cargadas " + visitas.size() + " visitas para " + u.getLogin() + " ...");
+		
 		return "mis_visitas";
 	}
 	
 	@GetMapping({"/mis_eventos", "/miseventos", "/mis-eventos", "/misEventos"})
-	public String misEventos() {
+	public String misEventos(Model m,  HttpSession session) {
 		return "mis_eventos";
 	}
 	
@@ -101,7 +104,7 @@ public class RootController {
 	}
 	
 	@GetMapping("/crear_ruta")
-	public String crearRuta() {
+	public String crearRuta(Model m,  HttpSession session) {
 		return "crear_ruta";
 	}
 	
@@ -110,7 +113,7 @@ public class RootController {
 		Visita vis = null;
 		try {
 			vis=(Visita)entityManager.createNamedQuery("buscaVisita").setParameter("vis", v).getSingleResult();
-		}catch (NoResultException e) {
+		}catch (NoResultException ex) {
 			return "403";
 		}
 		m.addAttribute("visita", vis);
@@ -138,7 +141,8 @@ public class RootController {
 			@RequestParam (required=false) String nombre,
 			@RequestParam (required=false) String tel,
 			@RequestParam (required=false) int importeEstimado,
-			@RequestParam (required=false) String detalles
+			@RequestParam (required=false) String detalles,
+			HttpSession session
 			)
 	{	
 		//creo el objeto visita y le damos valores
@@ -150,6 +154,7 @@ public class RootController {
 		v.setTelefono(!"".equals(tel) ? tel : "");
 		v.setImporteEstimado(importeEstimado);
 		v.setDetalles(!"".equals(detalles) ? detalles : "");
+		//v.setCreador(((User)session.getAttribute("user")));
 		//inserto el objeto en la base de datos
 		entityManager.persist(v);
 		//redirecciona a index
@@ -164,7 +169,8 @@ public class RootController {
 			@RequestParam String horaIni,
 			@RequestParam String horaFin,
 			@RequestParam String info,
-			@RequestParam int precio
+			@RequestParam int precio,
+			HttpSession session
 			)
 	{
 		Evento e = new Evento();
@@ -172,7 +178,9 @@ public class RootController {
 		e.setFecha(fecha);
 		e.setHoraIni(horaIni);
 		e.setHoraFin(horaFin);
-		e.setInfo(info);		
+		e.setInfo(info);	
+		e.setCreador(((User)session.getAttribute("user")));
+		entityManager.persist(e);
 		return "home";
 	}
 	

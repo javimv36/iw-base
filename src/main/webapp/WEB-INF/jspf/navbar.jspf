@@ -37,13 +37,13 @@
                             <a href="/mis_visitas"><i class="fa fa-road fa-fw"></i>Mis vistas</a>
                         </li>
                         <li>
-                            <a href="/eventos_asist"><i class="fa fa-map-marker fa-fw"></i>Asistencia a eventos</a>
+                            <a href="/mis_asistencias"><i class="fa fa-map-marker fa-fw"></i>Asistencia a eventos</a>
                         </li>
                         <li>
                             <a href="/eventos_public"><i class="fa fa-map-marker fa-fw"></i>Eventos públicos</a>
                         </li>
                         <li>
-                            <a href="/eventos_user"><i class="fa fa-map-marker fa-fw"></i>Eventos creados</a>
+                            <a href="/mis_eventos"><i class="fa fa-map-marker fa-fw"></i>Eventos creados</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-clock-o fa-fw"></i>Mis rutas<span class="fa arrow"></span></a>
