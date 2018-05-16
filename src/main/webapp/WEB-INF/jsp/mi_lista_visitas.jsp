@@ -13,7 +13,7 @@
 	<tbody>
 	<c:forEach items="${visitas}" var="v">
 		<tr>
-		<td>${v.id}<td><a href="/visita/${v.id}">${v.direccion}</a>
+		<td>${v.id}<td><a href="/visita/${v.id}">${v.direccion}</a><td>${v.fecha}
 		</tr>	
 	</c:forEach>
 	</tbody>

@@ -83,7 +83,8 @@ public class User {
 		this.visitas = visitas;
 	}
 
-	@OneToMany(targetEntity=Evento.class, fetch = FetchType.EAGER)
+	//@OneToMany(targetEntity=Evento.class, fetch = FetchType.EAGER)
+	@OneToMany(targetEntity=Evento.class)
 	@JoinColumn(name="creador_id")
 	public List<Evento> getEventos() {
 		return eventos;

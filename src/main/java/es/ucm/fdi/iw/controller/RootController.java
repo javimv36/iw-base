@@ -85,6 +85,13 @@ public class RootController {
 	
 	@GetMapping({"/mis_eventos", "/miseventos", "/mis-eventos", "/misEventos"})
 	public String misEventos(Model m,  HttpSession session) {
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
+		
+		List<Evento> eventos = u.getEventos();
+		m.addAttribute("eventos", eventos);
+		log.info("Cargados " + eventos.size() + " eventos para " + u.getLogin() + " ...");
+		
 		return "mis_eventos";
 	}
 	
@@ -154,9 +161,11 @@ public class RootController {
 		v.setTelefono(!"".equals(tel) ? tel : "");
 		v.setImporteEstimado(importeEstimado);
 		v.setDetalles(!"".equals(detalles) ? detalles : "");
+		v.setCreador(((User)session.getAttribute("user")));
 		//v.setCreador(((User)session.getAttribute("user")));
 		//inserto el objeto en la base de datos
 		entityManager.persist(v);
+		entityManager.flush();
 		//redirecciona a index
 		return "home";
 	}
@@ -181,6 +190,7 @@ public class RootController {
 		e.setInfo(info);	
 		e.setCreador(((User)session.getAttribute("user")));
 		entityManager.persist(e);
+		entityManager.flush();
 		return "home";
 	}
 	
