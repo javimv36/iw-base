@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Ruta {
 	private long id;
 	private int importeTotal;
-	private Date fecha;
+	private String fecha;
 	private List<Visita> visitas;
 	private List<Evento> eventos;
 	private User creador;
@@ -37,11 +37,11 @@ public class Ruta {
 		this.importeTotal = importeTotal;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 

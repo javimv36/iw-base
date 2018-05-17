@@ -15,6 +15,11 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(
 			name="buscaEvento",
 			query="select e from Evento e where e.id = :eve")
+	,
+	@NamedQuery(
+			name="todosEventos",
+			query="select e from Evento e")
+	
 	})
 public class Evento {
 	private long id;

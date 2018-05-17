@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.ucm.fdi.iw.model.Evento;
+import es.ucm.fdi.iw.model.Ruta;
 import es.ucm.fdi.iw.model.User;
 import es.ucm.fdi.iw.model.Visita;
 
@@ -95,6 +96,26 @@ public class RootController {
 		return "mis_eventos";
 	}
 	
+	@GetMapping({"/eventos"})
+	public String eventos(Model m,  HttpSession session) {
+		List<Evento> eventos = null;
+		try {
+			eventos=(List<Evento>)entityManager.createNamedQuery("todosEventos").getResultList();
+		}catch (NoResultException ex) {
+			return "403";
+		}
+		m.addAttribute("eventos", eventos);
+		
+		log.info("Cargados " + eventos.size() + " eventos ...");
+		
+		return "eventos";
+	}
+	
+	@GetMapping("/403")
+	public String errorPage() {
+		return "403";
+	}
+	
 	@GetMapping("/administrar")
 	public String administrar() {
 		return "administrar";
@@ -112,6 +133,17 @@ public class RootController {
 	
 	@GetMapping("/crear_ruta")
 	public String crearRuta(Model m,  HttpSession session) {
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
+		
+		List<Evento> eventos = u.getEventos();
+		m.addAttribute("eventos", eventos);
+		log.info("Cargados " + eventos.size() + " eventos para " + u.getLogin() + " ...");
+		
+		List<Visita> visitas = u.getVisitas();
+		m.addAttribute("visitas", visitas);
+		log.info("Cargadas " + visitas.size() + " visitas para " + u.getLogin() + " ...");
+				
 		return "crear_ruta";
 	}
 	
@@ -194,4 +226,38 @@ public class RootController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/addRuta", method = RequestMethod.POST)
+	@Transactional
+	public String addRuta(
+			@RequestParam String fecha,
+			@RequestParam("eventos") String[] eventos,
+			@RequestParam("visitas") String[] visitas,
+			HttpSession session
+			) {
+		Ruta r = new Ruta();
+
+		List<Evento> e=r.getEventos();
+		for(int i=0;i<eventos.length; i++) {
+			e.add((Evento)entityManager.
+					createNamedQuery("buscaEvento").
+					setParameter("eve", Long.parseLong(eventos[i])).
+					getSingleResult());
+			log.info("Añadiendo " + eventos[i]+ " a la ruta " + r.getId() + " ...");
+			
+		}
+		List<Visita> v=r.getVisitas();
+		for(int i=0;i<visitas.length; i++) {
+			v.add((Visita)entityManager.
+					createNamedQuery("buscaVisita").
+					setParameter("vis", Long.parseLong(visitas[i])).
+					getSingleResult());
+		}
+		r.setVisitas(v);
+		r.setEventos(e);
+		r.setFecha(fecha);
+		r.setCreador(((User)session.getAttribute("user")));
+		entityManager.persist(r);
+		entityManager.flush();
+		return "home";
+	}
 }

@@ -11,6 +11,11 @@
                         <div class="panel-body">
                             <div class="row">
                             	<form action="/addRuta" method="post" role="form">
+                                	 <div class="col-lg-6">
+                                   	<%@ include file="seleccionar_eventos.jsp"%>
+                                    <%@ include file="seleccionar_visitas.jsp"%>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
                                 	<div class="col-lg-6">
                                 		<div class="form-group has-warning">
                                             <label>Fecha</label>
@@ -18,15 +23,12 @@
                                             <p class="help-block">Selecciona el día</p>
                                         </div>
                                        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                   		<button type="submit" class="btn btn-default">Guardar</button>
+                                        <button type="reset" class="btn btn-default">Reset</button>
+                                   
                                     </div>
                                 <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <h1>Eventos</h1>
-                                   	<%@ include file="mi_lista_eventos.jsp"%>
-                                    <h1>Visitas</h1>
-                                    <%@ include file="mi_lista_visitas.jsp"%>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
+                               
                                  </form>
                             </div>
                             <!-- /.row (nested) -->

@@ -42,6 +42,7 @@
 	
     <!-- SB Admin CSS - Include with every page -->
     <link href="${s}/css/sb-admin.css" rel="stylesheet">
+    <link rel="icon" href="${s}/files/icon.png" type="image/gif" sizes="16x16">
 
 </head>
 
