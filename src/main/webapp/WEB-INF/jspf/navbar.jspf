@@ -49,7 +49,7 @@
                             <a href="#"><i class="fa fa-clock-o fa-fw"></i>Mis rutas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Más frecuentes</a>
+                                    <a href="/mis-rutas">Más frecuentes</a>
                                 </li>
                                 <li>
                                     <a href="buttons.html">Por hacer</a>

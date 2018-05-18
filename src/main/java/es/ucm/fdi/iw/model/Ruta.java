@@ -8,9 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 @Entity
-
+@NamedQueries({
+	@NamedQuery(
+			name="buscaRuta",
+			query="select r from Ruta r where r.id = :rut")
+	})
 public class Ruta {
 	private long id;
 	private int importeTotal;

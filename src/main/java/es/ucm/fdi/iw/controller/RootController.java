@@ -96,6 +96,18 @@ public class RootController {
 		return "mis_eventos";
 	}
 	
+	@GetMapping({"/mis_rutas", "/misrutas", "/mis-rutas", "/misRutas"})
+	public String misRutas(Model m,  HttpSession session) {
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
+		
+		List<Ruta> rutas = u.getRutas();
+		m.addAttribute("rutas", rutas);
+		log.info("Cargados " + rutas.size() + " rutas para " + u.getLogin() + " ...");
+		
+		return "mis_rutas";
+	}
+	
 	@GetMapping({"/eventos"})
 	public String eventos(Model m,  HttpSession session) {
 		List<Evento> eventos = null;
@@ -171,6 +183,18 @@ public class RootController {
 		return "evento";
 	}
 	
+	@RequestMapping(path="/ruta/{r}", method = RequestMethod.GET)
+	public String ruta(@PathVariable @NumberFormat long r, Model m) {
+		Ruta rut = null;
+		try {
+			rut=(Ruta)entityManager.createNamedQuery("buscaRuta").setParameter("rut", r).getSingleResult();
+		}catch (NoResultException ex) {
+			return "403";
+		}
+		m.addAttribute("ruta", rut);
+		return "ruta";
+	}
+	
 	@RequestMapping(value = "/addVisita", method = RequestMethod.POST)
 	@Transactional
 	public String addVisita(
@@ -230,33 +254,50 @@ public class RootController {
 	@Transactional
 	public String addRuta(
 			@RequestParam String fecha,
-			@RequestParam("eventos") String[] eventos,
-			@RequestParam("visitas") String[] visitas,
+			@RequestParam @NumberFormat long[] eventos,
+			@RequestParam @NumberFormat long[] visitas,
 			HttpSession session
 			) {
 		Ruta r = new Ruta();
-
-		List<Evento> e=r.getEventos();
-		for(int i=0;i<eventos.length; i++) {
-			e.add((Evento)entityManager.
-					createNamedQuery("buscaEvento").
-					setParameter("eve", Long.parseLong(eventos[i])).
-					getSingleResult());
-			log.info("Añadiendo " + eventos[i]+ " a la ruta " + r.getId() + " ...");
-			
-		}
-		List<Visita> v=r.getVisitas();
-		for(int i=0;i<visitas.length; i++) {
-			v.add((Visita)entityManager.
-					createNamedQuery("buscaVisita").
-					setParameter("vis", Long.parseLong(visitas[i])).
-					getSingleResult());
-		}
-		r.setVisitas(v);
-		r.setEventos(e);
 		r.setFecha(fecha);
 		r.setCreador(((User)session.getAttribute("user")));
 		entityManager.persist(r);
+		
+		log.info("Añadiendo " + eventos.length + " eventos a la ruta " + r.getId() + " ... eventos : "+ eventos[0] + " ...");
+		Evento eve = null;
+		for(int i=0;i<eventos.length; i++) {
+			try {
+				log.info("Añadiendo evento [" + eventos[i]+ "] a la ruta " + r.getId() + " ...");
+				eve=(Evento)entityManager.
+						createNamedQuery("buscaEvento").
+						setParameter("eve", eventos[i]).
+						getSingleResult();
+				eve.setRuta(r);
+				entityManager.persist(eve);
+			}catch (NoResultException ex) {
+				return "403";
+			}catch (NullPointerException ex) {
+				log.info("Error añadiendo evento ...");
+				return "403";
+			}
+		}
+		Visita vis = null;
+		for(int i=0;i<visitas.length; i++) {
+			try {
+				log.info("Añadiendo visita [" + eventos[i]+ "] a la ruta " + r.getId() + " ...");
+				vis =((Visita)entityManager.
+						createNamedQuery("buscaVisita").
+						setParameter("vis", visitas[i]).
+						getSingleResult());
+				vis.setRuta(r);
+				entityManager.persist(vis);
+			}catch (NoResultException ex) {
+				return "403";
+			}catch (NullPointerException ex) {
+				log.info("Error añadiendo evento ...");
+				return "403";
+			}
+		}
 		entityManager.flush();
 		return "home";
 	}
