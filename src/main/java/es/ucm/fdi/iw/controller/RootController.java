@@ -49,6 +49,11 @@ public class RootController {
 	public String root(Model model, Principal principal, HttpSession session) {
 		log.info(principal.getName() + " de tipo " + principal.getClass());		
 		addUserToSession(session, principal);
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
+		Ruta ruta = u.getRutas().get(u.getRutas().size()-1);
+		model.addAttribute("ruta", ruta);
+		
 		return "home";
 	}
 	
@@ -199,25 +204,29 @@ public class RootController {
 	@Transactional
 	public String addVisita(
 			@RequestParam String direccion,
-			@RequestParam String fecha,
-			@RequestParam String tipo,
+			@RequestParam (required=false) String fecha,
+			@RequestParam (required=false) String tipo,
 			@RequestParam (required=false) String nombre,
 			@RequestParam (required=false) String tel,
 			@RequestParam (required=false) int importeEstimado,
 			@RequestParam (required=false) String detalles,
+			@RequestParam (required=false) String horaIni,
+			@RequestParam (required=false) String horaFin,
 			HttpSession session
 			)
 	{	
 		//creo el objeto visita y le damos valores
 		Visita v = new Visita();
 		v.setDireccion(direccion);
-		v.setFecha(fecha);
-		v.setTipo(tipo);
+		v.setFecha(!"".equals(fecha) ? fecha : "");
+		v.setTipo(!"".equals(tipo) ? tipo : "");
 		v.setNombre(!"".equals(nombre) ? nombre : ""); //Asegurando que los campos vacios no afecten
 		v.setTelefono(!"".equals(tel) ? tel : "");
 		v.setImporteEstimado(importeEstimado);
 		v.setDetalles(!"".equals(detalles) ? detalles : "");
 		v.setCreador(((User)session.getAttribute("user")));
+		v.setHoraIni(!"".equals(horaIni) ? horaIni : "");
+		v.setHoraFin(!"".equals(horaFin) ? horaFin : "");
 		//v.setCreador(((User)session.getAttribute("user")));
 		//inserto el objeto en la base de datos
 		entityManager.persist(v);
@@ -254,8 +263,8 @@ public class RootController {
 	@Transactional
 	public String addRuta(
 			@RequestParam String fecha,
-			@RequestParam @NumberFormat long[] eventos,
-			@RequestParam @NumberFormat long[] visitas,
+			@RequestParam (defaultValue = "0",required=false) @NumberFormat long[] eventos,
+			@RequestParam (defaultValue = "0",required=false) @NumberFormat long[] visitas,
 			HttpSession session
 			) {
 		Ruta r = new Ruta();
@@ -264,38 +273,40 @@ public class RootController {
 		entityManager.persist(r);
 		
 		log.info("Añadiendo " + eventos.length + " eventos a la ruta " + r.getId() + " ... eventos : "+ eventos[0] + " ...");
-		Evento eve = null;
-		for(int i=0;i<eventos.length; i++) {
-			try {
-				log.info("Añadiendo evento [" + eventos[i]+ "] a la ruta " + r.getId() + " ...");
-				eve=(Evento)entityManager.
-						createNamedQuery("buscaEvento").
-						setParameter("eve", eventos[i]).
-						getSingleResult();
-				eve.setRuta(r);
-				entityManager.persist(eve);
-			}catch (NoResultException ex) {
-				return "403";
-			}catch (NullPointerException ex) {
-				log.info("Error añadiendo evento ...");
-				return "403";
+		if (eventos[0]!=0) {
+			Evento eve = null;
+			for(int i=0;i<eventos.length; i++) {
+				try {
+					log.info("Añadiendo evento [" + eventos[i]+ "] a la ruta " + r.getId() + " ...");
+					eve=(Evento)entityManager.
+							createNamedQuery("buscaEvento").
+							setParameter("eve", eventos[i]).
+							getSingleResult();
+					eve.setRuta(r);
+					entityManager.persist(eve);
+				}catch (NoResultException ex) {
+					return "403";
+				}catch (NullPointerException ex) {
+					return "403";
+				}
 			}
 		}
-		Visita vis = null;
-		for(int i=0;i<visitas.length; i++) {
-			try {
-				log.info("Añadiendo visita [" + eventos[i]+ "] a la ruta " + r.getId() + " ...");
-				vis =((Visita)entityManager.
-						createNamedQuery("buscaVisita").
-						setParameter("vis", visitas[i]).
-						getSingleResult());
-				vis.setRuta(r);
-				entityManager.persist(vis);
-			}catch (NoResultException ex) {
-				return "403";
-			}catch (NullPointerException ex) {
-				log.info("Error añadiendo evento ...");
-				return "403";
+		if(visitas[0]!=0) {
+			Visita vis = null;
+			for(int i=0;i<visitas.length; i++) {
+				try {
+					log.info("Añadiendo visita [" + eventos[i]+ "] a la ruta " + r.getId() + " ...");
+					vis =((Visita)entityManager.
+							createNamedQuery("buscaVisita").
+							setParameter("vis", visitas[i]).
+							getSingleResult());
+					vis.setRuta(r);
+					entityManager.persist(vis);
+				}catch (NoResultException ex) {
+					return "403";
+				}catch (NullPointerException ex) {
+					return "403";
+				}
 			}
 		}
 		entityManager.flush();

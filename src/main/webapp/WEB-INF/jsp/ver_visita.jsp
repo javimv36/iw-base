@@ -17,7 +17,7 @@
                                     <p>${visita.getFecha()}</p>
                                     <label>Hora</label>
                                      <p>${visita.getHoraIni()}</p>
-                                     <div class="qrcode" href="${visita.getDetalles()}"></div>
+                                     <div class="qrcode" href="${visita.getDireccion()}"></div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">

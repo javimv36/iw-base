@@ -18,11 +18,23 @@
                                             <p class="help-block">Comprueba que la diracción sea correcta.</p>
 											<input type="button" onclick="buscaDireccion()" class="btn" value="Comprobar" />                                                 
                                         </div>
-                                        <div class="form-group has-warning">
+                                        <div class="form-group">
                                             <label>Fecha</label>
                                             <input type="date" name="fecha" class="form-control">
                                             <p class="help-block">Selecciona el día</p>
                                         </div>
+                                        
+                                         <div class="form-group has-warning">
+                                            <label>Hora de inicio</label>
+                                            <input type="time" name="horaIni" class="form-control" required>
+                                            <p class="help-block">Selecciona una hora</p>
+                                        </div>
+                                        <div class="form-group has-warning">
+                                            <label>Hora de finalización</label>
+                                            <input type="time" name="horaFin" class="form-control" required>
+                                            <p class="help-block">Selecciona una hora</p>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <label>Tipo</label>
                                             <div class="radio">
@@ -65,7 +77,7 @@
                                             </span>
                                             <input type="tel" name="tel" class="form-control" placeholder="Teléfono">
                                         </div>
-                                        <div class="form-group input-group has-warning">
+                                        <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-eur"></i>
                                             </span>
                                             <input type="text" name="importeEstimado" class="form-control" placeholder="Importe estimado">

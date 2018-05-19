@@ -16,11 +16,18 @@
             <!-- /.row -->
                 <div class="row">
                 	<div class="col-lg-8">
-                       	<%@ include file="timeline-ruta.jsp"%>
+                       	<%@ include file="ver_ruta.jsp"%>
                     </div>
                     <!-- /.col-lg-8 (nested) -->
                     <div class="col-lg-4">
 	  					<%@ include file="mapa-ruta.jsp"%>
+	  					
+	  					<!-- Scripts necesarios para generar QRs --> 	
+					  	<script src="${s}/js/qrcode.min.js"></script>
+					  	<script type="text/javascript">
+					  		buscaDireccionDiv();
+					  	</script>
+	  					
               		</div>
 	           	<!-- /.col-lg-4 -->
 	       	</div>

@@ -9,7 +9,7 @@
        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">${ruta.getId()} : ${ruta.getFecha()}</h1>
+                    <h1 class="page-header">Ruta ${ruta.getId()} : día ${ruta.getFecha()}</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -22,9 +22,7 @@
                     <!-- /.col-lg-8 (nested) -->
                     <div class="col-lg-4">
 	  					<%@ include file="mapa-ruta.jsp"%>
-	  					<script type="text/javascript">
 	  					
-	  					</script>
 	  					<!-- Scripts necesarios para generar QRs --> 	
 					  	<script src="${s}/js/qrcode.min.js"></script>
 					  	<script type="text/javascript">

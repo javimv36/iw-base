@@ -59,32 +59,32 @@
       }
       
 	  function buscaDireccionDiv(){
-		  var url="";
-    	  GMaps.geocode({
-              address: $('#direccion').html(),
-              callback: function(results, status){
-                if(status=='OK'){
-                  var latlng = results[0].geometry.location;
-                  map.setCenter(latlng.lat(), latlng.lng());
-                  map.addMarker({
-                    lat: latlng.lat(),
-                    lng: latlng.lng()
-                  });
-                  url= latlng.lat() + ',' + latlng.lng();
-                  $('#direccion').data("coords", url);
-                }
-                
-		    	var qrs = document.getElementsByClassName("qrcode");
-		   		new QRCode(qrs[0], {
-				    text: 'http://google.com/maps/search/?api=1&query='+ $('#direccion').data("coords") ,
+	    	var qrs = document.getElementsByClassName("qrcode");
+		  	var url="";
+			for (var i=0; i< qrs.length; i++){
+	    	  	GMaps.geocode({
+	              address:  $(qrs[i]).attr("href") ,
+	              callback: function(results, status){
+	                if(status=='OK'){
+	                  var latlng = results[0].geometry.location;
+	                  map.setCenter(latlng.lat(), latlng.lng());
+	                  map.addMarker({
+	                    lat: latlng.lat(),
+	                    lng: latlng.lng()
+	                  });
+	                  url= latlng.lat() + ',' + latlng.lng();
+	                }
+	              }
+	             });
+                new QRCode(qrs[i], {
+				    text: 'http://google.com/maps/search/?api=1&query='+$(qrs[i]).attr("href").replace(/\s/g, "-") ,
 				    width: 256,
 				    height: 256,
 				    colorDark : "#000000",
 				    colorLight : "#ffffff",
 				    correctLevel : QRCode.CorrectLevel.H
 		   		});
-              }
-            });
+	    	}
     	  return url;
       }
   </script>
