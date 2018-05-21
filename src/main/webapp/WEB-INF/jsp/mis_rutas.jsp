@@ -15,14 +15,7 @@
             </div>
             <!-- /.row -->
                 <div class="row">
-                	<div class="col-lg-8">
                        	<%@ include file="mi_lista_rutas.jsp"%>
-                    </div>
-                    <!-- /.col-lg-8 (nested) -->
-                    <div class="col-lg-4">
-	  					<%@ include file="mapa-ruta.jsp"%>
-              		</div>
-	           	<!-- /.col-lg-4 -->
 	       	</div>
 	        <!-- /.row -->
 	   	</div>

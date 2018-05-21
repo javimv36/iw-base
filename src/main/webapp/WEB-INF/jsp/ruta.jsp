@@ -10,8 +10,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Ruta ${ruta.getId()} : día ${ruta.getFecha()}</h1>
+                
                 </div>
                 <!-- /.col-lg-12 -->
+                  <button type="button" class="btn btn-success">Generar PDF</button>
             </div>
             <!-- /.row -->
                 <div class="row">

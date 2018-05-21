@@ -4,18 +4,25 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 	
-<div class="panel panel-default">
-<h1>Lista de rutas de ${user.login}</h1>
-<table>
-	<thead>
-	<tr><th>id<th>fecha</tr>
-	</thead>
-	<tbody>
+
 	<c:forEach items="${rutas}" var="r">
-		<tr>
-		<td>${r.id}<td><a href="/ruta/${r.id}">${r.fecha}</a>
-		</tr>	
-	</c:forEach>
-	</tbody>
-	</table>
-</div>
+    <a href="/ruta/${r.id}">
+    <div class="col-lg-4">
+   
+                    <div class="panel panel-primary"> 
+                    
+                        <div class="panel-heading">
+                           ${r.id}
+                        </div>
+                        <div class="panel-body">
+                            <p>${r.fecha}</p>
+                        </div>
+                        <div class="panel-footer">
+                            ${r.creador.login}
+                        </div>
+                       
+                    </div>
+                </div>
+                 </a>
+                <!-- /.col-lg-4 -->
+                	</c:forEach>

@@ -10,12 +10,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                                            
+                                <h2>Eventos</h2>
 	                            <ul class="timeline">
 	                            
 	                            <c:forEach items="${ruta.getEventos()}" var="e">
 	                            <li>
-							       <div class="timeline-badge info"><i class="fa fa-home"></i>
+							       <div class="timeline-badge info"><i class="fa fa-certificate "></i>
 							       </div>
 							       <div class="timeline-panel">
 							           <div class="timeline-heading">
@@ -59,11 +59,13 @@
 							                    </li>
 							                       </c:forEach>
 							                   </ul>
+							                   
+							                   <h2>Visitas</h2>
 							       <ul class="timeline">
 	                            
 	                            <c:forEach items="${ruta.getVisitas()}" var="v">
 	                            <li>
-							       <div class="timeline-badge info"><i class="fa fa-home"></i>
+							       <div class="timeline-badge info"><i class="fa fa-rocket"></i>
 							       </div>
 							       <div class="timeline-panel">
 							           <div class="timeline-heading">
