@@ -13,7 +13,7 @@
                 
                 </div>
                 <!-- /.col-lg-12 -->
-                  <button type="button" class="btn btn-success">Generar PDF</button>
+                  <button type="button" class="btn btn-success" onclick="generaPDF();">Generar PDF</button>
             </div>
             <!-- /.row -->
                 <div class="row">
@@ -31,6 +31,26 @@
 					  		buscaDireccionDiv();
 					  	</script>
 					  	<!-- Fin scripts QRs -->
+					  	
+					  	<script src="${s}/js/pdftex.js"></script>
+					  	<script src="${s}/js/pdftex-worker.js"></script>
+					  	<script src="${s}/js/promise.min.js"></script>
+					  	<script type="text/javascript">
+					  	var pdf = undefined;
+					  	function generaPDF(){
+					  		console.log("Creando pdf");
+					  	var pdftex = new PDFTeX();
+					  	var latex_code = "" +
+					  	  "\documentclass[12pt]{article}" +
+					  	  "\title{\TeX live.js}" +
+					  	  "\begin{document}" +
+					  	  "\maketitle" +
+					  	  "\LaTeX is great!" +
+					  	  "\end{document}";
+						console.log("A compilar!!!");
+					  	pdftex.compile(latex_code).then(function(pdf) { window.open(pdf) }); 
+					  	}
+					  	</script>
               		</div>
 	           	<!-- /.col-lg-4 -->
 	       	</div>
