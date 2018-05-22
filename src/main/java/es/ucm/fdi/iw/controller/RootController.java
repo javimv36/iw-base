@@ -265,7 +265,8 @@ public class RootController {
 			@RequestParam String fecha,
 			@RequestParam (defaultValue = "0",required=false) @NumberFormat long[] eventos,
 			@RequestParam (defaultValue = "0",required=false) @NumberFormat long[] visitas,
-			HttpSession session
+			HttpSession session,
+			Model m
 			) {
 		Ruta r = new Ruta();
 		r.setFecha(fecha);
@@ -309,6 +310,7 @@ public class RootController {
 				}
 			}
 		}
+		m.addAttribute("ruta", r);
 		entityManager.flush();
 		return "home";
 	}

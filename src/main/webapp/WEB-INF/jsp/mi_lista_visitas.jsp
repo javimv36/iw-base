@@ -24,4 +24,4 @@
                 </div>
                  </a>
                 <!-- /.col-lg-4 -->
-                	</c:forEach>
+      </c:forEach>

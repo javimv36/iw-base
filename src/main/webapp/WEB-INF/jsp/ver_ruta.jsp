@@ -14,7 +14,7 @@
 	                            <ul class="timeline">
 	                            
 	                            <c:forEach items="${ruta.getEventos()}" var="e">
-	                            <li>
+	                            <li class="evento">
 							       <div class="timeline-badge info"><i class="fa fa-certificate "></i>
 							       </div>
 							       <div class="timeline-panel">
