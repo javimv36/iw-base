@@ -42,8 +42,11 @@
 					  		buscaDireccionDiv();
 					  	</script>
 					  	<!-- Fin scripts QRs -->
-					  	
-    				<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+					<script type="text/javascript" src="${s}/js/jsPDF/libs/png_support/zlib.js"></script>
+					<script type="text/javascript" src="${s}/js/jsPDF/libs/png_support/png.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+					<script type="text/javascript" src="${s}/js/jsPDF/plugins/addimage.js"></script>
+					<script type="text/javascript" src="${s}/js/jsPDF/plugins/png_support.js"></script>
 					<script type="text/javascript">
 
 					var doc = new jsPDF();
@@ -60,10 +63,12 @@
 					   //     'width': 170,
 					   //         'elementHandlers': specialElementHandlers
 					   // }
-					    console.log(eventos[i].children[1].children[1].children[1].children[1]);
-					   console.log(eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue);
+					   var imgData = eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue;
+					   //console.log(eventos[i].children[1].children[1].children[1].children[1]);
+					   console.log(imgData);
 					   doc.text(20,70, eventos[i].children[1].children[0].children[0].innerText);
-					   doc.addImage(eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue, 'PNG',  100, 200, 280, 210, undefined);
+					   doc.addImage(imgData, 'PNG', 10,10,50,50);
+					   //doc.addImage(eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue, 'PNG',  100, 200, 280, 210, undefined);
 					    }
 					    doc.save('sample-file.pdf');
 					});

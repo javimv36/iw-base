@@ -13,6 +13,7 @@
                 <!-- /.panel-heading -->
 			    <div class="panel-body">
 			    	<div id="map" style="height: 400px;"></div>
+			    	<div id="map-img" style="display:none; height: 400px;"></div>
 			        <ul id="instructions">
 					</ul>
                 </div>
@@ -23,13 +24,6 @@
 <!-- Scripts necesarios para generar los mapas -->
 
 <%@ include file="gmapskey.jsp"%>
-<script src="https://raw.githubusercontent.com/sindresorhus/pify/master/index.js"></script>
-<script src="${s}/js/png.js/index.js"></script>
-<script src="${s}/js/jpeg-js/lib/encoder.js"></script>
-<script src="${s}/js/jpeg-js/lib/decoder.js"></script>
-<script src="${s}/js/jpeg-js/index.js"></script>
-<script src="https://raw.githubusercontent.com/marekventur/png-to-jpeg/master/index.js"></script>
-
 <script src="${s}/js/gmaps.js"></script>
 <script type="text/javascript">
     var map;
@@ -54,12 +48,17 @@
               address: $('#direccion').val().trim(),
               callback: function(results, status){
                 if(status=='OK'){
+                	
+                	
+                	
                   var latlng = results[0].geometry.location;
                   map.setCenter(latlng.lat(), latlng.lng());
                   map.addMarker({
                     lat: latlng.lat(),
                     lng: latlng.lng()
                   });
+                  
+                
                 }
               }
             });
@@ -79,6 +78,19 @@
 	                    lat: latlng.lat(),
 	                    lng: latlng.lng()
 	                  });
+	                  newurl = GMaps.staticMapURL({
+	                	  size: [610, 300],
+	                	  lat:  latlng.lat(),
+	                	  lng: latlng.lng(),
+	                	  markers: [
+	                		   {lat: latlng.lat(), lng: latlng.lng(),
+	                		      color: 'blue'}
+	                		  ]
+	                	});
+
+	                	$('<img/>').attr('src', newurl)
+	                	  .appendTo(qrs[i]);
+	                	
 	                  url= latlng.lat() + ',' + latlng.lng();
 	                }
 	              }
@@ -89,7 +101,8 @@
 				    height: 256,
 				    colorDark : "#000000",
 				    colorLight : "#ffffff",
-				    correctLevel : QRCode.CorrectLevel.H
+				    correctLevel : QRCode.CorrectLevel.H,
+				    useSVG: true
 		   		});
 	    	}
     	  return url;
