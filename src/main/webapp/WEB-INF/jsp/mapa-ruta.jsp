@@ -23,6 +23,13 @@
 <!-- Scripts necesarios para generar los mapas -->
 
 <%@ include file="gmapskey.jsp"%>
+<script src="https://raw.githubusercontent.com/sindresorhus/pify/master/index.js"></script>
+<script src="${s}/js/png.js/index.js"></script>
+<script src="${s}/js/jpeg-js/lib/encoder.js"></script>
+<script src="${s}/js/jpeg-js/lib/decoder.js"></script>
+<script src="${s}/js/jpeg-js/index.js"></script>
+<script src="https://raw.githubusercontent.com/marekventur/png-to-jpeg/master/index.js"></script>
+
 <script src="${s}/js/gmaps.js"></script>
 <script type="text/javascript">
     var map;

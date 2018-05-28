@@ -60,7 +60,10 @@
 					   //     'width': 170,
 					   //         'elementHandlers': specialElementHandlers
 					   // }
-					   doc.text(20,70, $(eventos[i]).text);
+					    console.log(eventos[i].children[1].children[1].children[1].children[1]);
+					   console.log(eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue);
+					   doc.text(20,70, eventos[i].children[1].children[0].children[0].innerText);
+					   doc.addImage(eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue, 'PNG',  100, 200, 280, 210, undefined);
 					    }
 					    doc.save('sample-file.pdf');
 					});
