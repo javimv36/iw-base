@@ -49,6 +49,9 @@
 					<script type="text/javascript" src="${s}/js/jsPDF/plugins/png_support.js"></script>
 					<script type="text/javascript">
 
+
+					
+					
 					var doc = new jsPDF();
 					var specialElementHandlers = {
 					    '#editor': function (element, renderer) {
@@ -58,16 +61,21 @@
 					
 					$('#cmd').click(function () {   
 						var eventos = document.getElementsByClassName("evento");
+						var mapas = $('.map-img');
+						console.log(mapas);
 						for (var i=0; i< eventos.length; i++){
 					   // doc.fromHTML($('#content').html(), 15, 15, {
 					   //     'width': 170,
 					   //         'elementHandlers': specialElementHandlers
 					   // }
+					   var mapaData = mapas[0].children[i].attributes["src"].nodeValue;
 					   var imgData = eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue;
 					   //console.log(eventos[i].children[1].children[1].children[1].children[1]);
-					   console.log(imgData);
+					   console.log(mapaData);
+					  
 					   doc.text(20,70, eventos[i].children[1].children[0].children[0].innerText);
 					   doc.addImage(imgData, 'PNG', 10,10,50,50);
+					   doc.addImage(mapaData, 'PNG', 10,10,50,50);
 					   //doc.addImage(eventos[i].children[1].children[1].children[1].children[1].attributes["src"].nodeValue, 'PNG',  100, 200, 280, 210, undefined);
 					    }
 					    doc.save('sample-file.pdf');

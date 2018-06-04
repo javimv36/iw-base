@@ -27,6 +27,7 @@
 							           <div class="timeline-body">
 							               <p>${e.info}</p>
 							           	<div class="qrcode" href="${e.direccion}"></div>
+							           
 							           	<hr>
 							           	<div class="form-group input-group">
 							                <span class="input-group-addon"><i class="fa fa-file-o"></i>

@@ -13,7 +13,7 @@
                 <!-- /.panel-heading -->
 			    <div class="panel-body">
 			    	<div id="map" style="height: 400px;"></div>
-			    	<div id="map-img" style="display:none; height: 400px;"></div>
+			    		<div class="map-img" height: 400px;"></div>
 			        <ul id="instructions">
 					</ul>
                 </div>
@@ -89,7 +89,7 @@
 	                	});
 
 	                	$('<img/>').attr('src', newurl)
-	                	  .appendTo(qrs[i]);
+	                	  .appendTo('.map-img');
 	                	
 	                  url= latlng.lat() + ',' + latlng.lng();
 	                }
