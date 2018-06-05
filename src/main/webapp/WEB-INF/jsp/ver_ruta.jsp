@@ -65,7 +65,7 @@
 							       <ul class="timeline">
 	                            
 	                            <c:forEach items="${ruta.getVisitas()}" var="v">
-	                            <li>
+	                            <li class="visita">
 							       <div class="timeline-badge info"><i class="fa fa-rocket"></i>
 							       </div>
 							       <div class="timeline-panel">

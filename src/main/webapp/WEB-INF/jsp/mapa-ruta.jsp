@@ -99,7 +99,7 @@
 				    text: 'http://google.com/maps/search/?api=1&query='+$(qrs[i]).attr("href").replace(/\s/g, "-") ,
 				    width: 256,
 				    height: 256,
-				    colorDark : "#000000",
+				    colorDark : "#428bca",
 				    colorLight : "#ffffff",
 				    correctLevel : QRCode.CorrectLevel.H,
 				    useSVG: true
