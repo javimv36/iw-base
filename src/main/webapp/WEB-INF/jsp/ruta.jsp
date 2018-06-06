@@ -42,11 +42,11 @@
 					  		buscaDireccionDiv();
 					  	</script>
 					  	<!-- Fin scripts QRs -->
-					<script type="text/javascript" src="${s}/js/jsPDF/libs/png_support/zlib.js"></script>
-					<script type="text/javascript" src="${s}/js/jsPDF/libs/png_support/png.js"></script>
-					<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
-					<script type="text/javascript" src="${s}/js/jsPDF/plugins/addimage.js"></script>
-					<script type="text/javascript" src="${s}/js/jsPDF/plugins/png_support.js"></script>
+					<script type="text/javascript" src="${s}/js/pdf/libs/png_support/zlib.js"></script>
+					<script type="text/javascript" src="${s}/js/pdf/libs/png_support/png.js"></script>
+					<script type="text/javascript" src="${s}/js/pdf/jspdf.min.js"></script>
+					<script type="text/javascript" src="${s}/js/pdf/plugins/addimage.js"></script>
+					<script type="text/javascript" src="${s}/js/pdf/plugins/png_support.js"></script>
 					<script type="text/javascript">
 
 					var doc = new jsPDF();

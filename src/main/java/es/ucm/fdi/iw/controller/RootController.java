@@ -113,6 +113,22 @@ public class RootController {
 		return "mis_rutas";
 	}
 	
+	@GetMapping({"/asistencia"})
+	public String asistencia(Model m,  HttpSession session) {
+		List<Evento> eventos = null;
+		try {
+			eventos=(List<Evento>)entityManager.createNamedQuery("todosEventos").getResultList();
+		}catch (NoResultException ex) {
+			return "403";
+		}
+		m.addAttribute("eventos", eventos);
+		
+		log.info("Cargados " + eventos.size() + " eventos ...");
+		
+		return "asistencia";
+	}
+	
+	
 	@GetMapping({"/eventos"})
 	public String eventos(Model m,  HttpSession session) {
 		List<Evento> eventos = null;
@@ -200,6 +216,28 @@ public class RootController {
 		return "ruta";
 	}
 	
+	@RequestMapping(value = "/asistirEvento", method = RequestMethod.POST)
+	@Transactional
+	public String asistirEvento(
+			@RequestParam long evento,
+			HttpSession session
+			)
+	{	
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
+		
+		
+		List<Evento> l =u.getAsisteEventos();
+		l.add((Evento)entityManager.
+							createNamedQuery("buscaEvento").
+							setParameter("eve", evento).
+							getSingleResult());
+		u.setAsisteEventos(l);
+		entityManager.persist(u);
+		entityManager.flush();
+			
+		return "home";
+	}
 	@RequestMapping(value = "/addVisita", method = RequestMethod.POST)
 	@Transactional
 	public String addVisita(
@@ -311,6 +349,7 @@ public class RootController {
 			}
 		}
 		m.addAttribute("ruta", r);
+		entityManager.persist(r);
 		entityManager.flush();
 		return "home";
 	}

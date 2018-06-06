@@ -7,7 +7,13 @@
 	<div class="panel panel-default">
                         <div class="panel-heading">
                             Datos del evento
-                        </div>
+                            
+                             <form action = "/asistirEvento" method = "post">
+        						<input type="submit" name="evento" class="btn btn-success" value="${evento.getId()}" />
+   								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                
+   							 </form>
+                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
