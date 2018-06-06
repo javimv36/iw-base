@@ -78,19 +78,7 @@
 	                    lat: latlng.lat(),
 	                    lng: latlng.lng()
 	                  });
-	                  newurl = GMaps.staticMapURL({
-	                	  size: [610, 300],
-	                	  lat:  latlng.lat(),
-	                	  lng: latlng.lng(),
-	                	  markers: [
-	                		   {lat: latlng.lat(), lng: latlng.lng(),
-	                		      color: 'blue'}
-	                		  ]
-	                	});
-
-	                	$('<img/>').attr('src', newurl)
-	                	  .appendTo('.map-img');
-	                	
+	                 
 	                  url= latlng.lat() + ',' + latlng.lng();
 	                }
 	              }

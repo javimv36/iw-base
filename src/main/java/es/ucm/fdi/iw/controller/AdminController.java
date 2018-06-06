@@ -76,6 +76,7 @@ public class AdminController {
 		User u = new User();
 		u.setLogin(login);
 		u.setPassword(passwordEncoder.encode(password));
+		u.setEnabled((byte) 1);
 		u.setRoles("on".equals(isAdmin) ? "ADMIN,USER" : "USER");
 		entityManager.persist(u);
 		

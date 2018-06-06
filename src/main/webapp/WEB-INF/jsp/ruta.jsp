@@ -15,7 +15,7 @@
                 
                 </div>
                 <!-- /.col-lg-12 -->
-                  <button type="button" id="cmd" class="btn btn-success">Generar PDF</button>
+                  <!--  <button type="button" id="cmd" class="btn btn-success">Generar PDF</button> -->
             </div>
             <!-- /.row -->
                 <div class="row">
@@ -58,7 +58,7 @@
 					
 					$('#cmd').click(function () {   
 						var img = new Image;
-						var mapas = $('.map-img');
+					//	var mapas = $('.map-img');
 						var tituloRuta=document.getElementsByClassName("page-header")[0].innerText;
 						
 						var eventos = document.getElementsByClassName("evento");
@@ -96,8 +96,8 @@
 						  	var hora = visitas[i].children[1].children[0].children[1].innerText;
 						   	var direccion= visitas[i].children[1].children[0].children[0].innerText;
 						   	
-						   	var mapaData = mapas[0].children[i].attributes["src"].nodeValue;
-						   	console.log("url de la imagen: " + mapaData + "con datos: ");
+						//   	var mapaData = mapas[0].children[i].attributes["src"].nodeValue;
+						//   	console.log("url de la imagen: " + mapaData + "con datos: ");
 						    doc.text(20,50, direccion);
 						    doc.setFontSize(14);
 						   	doc.text(20,80	, asunto);

@@ -30,16 +30,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="/administrar"><i class="fa fa-dashboard fa-fw"></i>Control de rutas</a>
-                        </li>
-                        <li>
-                            <a href="/mis_visitas"><i class="fa fa-road fa-fw"></i>Mis vistas</a>
-                        </li>
-                        <li>
-                            <a href="/mis_rutas"><i class="fa fa-road fa-fw"></i>Mis rutas</a>
-                        </li>
-                        <li>
+                       <li>
                             <a href="#"><i class="fa fa-clock-o fa-fw"></i>Eventos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -54,29 +45,14 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i>Páginas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                  	<a href="/admin">Admin</a>
-                                </li>
-                                <li>
-                                    <a href="/administrar">Control de rutas</a>
-                                </li>
-                                <li>
-                                    <a href="/ruta">Ver ruta</a>
-                                </li>
-                                 <li>
-                                    <a href="/visita">Ver visita</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="https://www.npmjs.com/package/latex">Latex npm</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="/mis_visitas"><i class="fa fa-road fa-fw"></i>Mis vistas</a>
                         </li>
+                        <li>
+                            <a href="/mis_rutas"><i class="fa fa-road fa-fw"></i>Mis rutas</a>
+                        </li>
+                        
+                        
                     </ul>
                     <!-- /#side-menu -->
                 </div>

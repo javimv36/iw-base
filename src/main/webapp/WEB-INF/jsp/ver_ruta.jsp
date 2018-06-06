@@ -7,6 +7,7 @@
 	<div class="panel panel-default">
                         <div class="panel-heading">
                             Datos de la ruta
+                            <button type="button" id="cmd" class="btn btn-success">Generar PDF</button>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -27,34 +28,7 @@
 							           <div class="timeline-body">
 							               <p>${e.info}</p>
 							           	<div class="qrcode" href="${e.direccion}"></div>
-							           
-							           	<hr>
-							           	<div class="form-group input-group">
-							                <span class="input-group-addon"><i class="fa fa-file-o"></i>
-							                </span>
-							                <input type="text" class="form-control" placeholder="Nota sobre la visita">
-							           	</div>
-							           	<div class="form-group input-group">
-							                <span class="input-group-addon"><i class="fa fa-eur"></i>
-							                </span>
-							                <input type="number" class="form-control" placeholder="Importe">
-							           	</div>
-							               <div class="btn-group">
-							                   <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-							                       <i class="fa fa-check"></i> 
-							                       Terminar
-							                       <span class="caret"></span>
-							                   </button>
-							                   <ul class="dropdown-menu" role="menu">
-							                       <li><a href="#">Terminado</a>
-							                       </li>
-							                       <li class="divider"></li>
-							                       <li><a href="#">No disponible</a>
-							                       </li>
-							                       <li><a href="#">Aplazar</a>
-							                       </li>
-							                    </ul>
-							                    </div>
+							       
 							                    </div>
 							                    </div>
 							                    </li>
@@ -81,35 +55,7 @@
 							               <p>${v.nombre}</p>
 							               <p>${v.telefono}</p>
 							           	<div class="qrcode" href="${v.direccion}"></div>
-							           	<hr>
-							           	<div class="form-group input-group">
-							                <span class="input-group-addon"><i class="fa fa-file-o"></i>
-							                </span>
-							                <input type="text" class="form-control" placeholder="Nota sobre la visita">
-							           	</div>
-							           	<div class="form-group input-group">
-							                <span class="input-group-addon"><i class="fa fa-eur"></i>
-							                </span>
-							                <input type="number" class="form-control" placeholder="Importe">
-							           	</div>
-							               <div class="btn-group">
-							                   <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-							                       <i class="fa fa-check"></i> 
-							                       Terminar
-							                       <span class="caret"></span>
-							                   </button>
-							                   <ul class="dropdown-menu" role="menu">
-							                       <li><a href="#">Terminado</a>
-							                       </li>
-							                       <li class="divider"></li>
-							                       <li><a href="#">No disponible</a>
-							                       </li>
-							                       <li><a href="#">Aplazar</a>
-							                       </li>
-							                   </ul>
-							      
-							               </div>
-							             
+							         
 							           </div>
 							       </div>
 							       
