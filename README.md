@@ -44,6 +44,10 @@ Los recursos que voy a utilizar son:
 
 ![](schema.png)
 
+![](home.png) 
+
+![](pdf.png)
+
 ---
 
 #FORKED FROM
