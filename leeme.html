@@ -14,16 +14,8 @@
 <h2>Proyecto</h2>
 
 OngO es una web para gestionar tus rutas: visitas a tus clientes, a museos, rutas turísticas compartidas con amigos, todo esto y mas con las facilidades de escanear los destinos con 
-códigos QR y poder generar y descargar detalladamente PDF compilados en LaTeX con los mapas de Google.
+códigos QR y poder generar y descargar detalladamente PDF con los QRs que dirigen a Google Maps.
 
-<h2>Comentarios al profesor</h2>
-<p>
-La plantilla no es completamente navegable pero se puede hacer una idea de como se va a estructurar. En la página principal aparece información sobre la siguiente ruta que va a hacer 
-el cliente según la fecha que la identifique y se muestra en gmaps.js. El diseño de la base de datos está a medio implementar en el código.
-</p>
-<p>
-Para el seguimiento de la práctica, ver commit 042a077
-</p>
 <p>
 El desarrollo del proyecto se puede seguir en el siguiente <a href="https://github.com/javimv36/iw-base">repositorio</a>.
 </p>
@@ -34,17 +26,28 @@ Detalla aquí tus vistas. Usa enlaces a localhost:8080/ (SIN nombre de proyecto;
     <li><a href="localhost:8080/">vista principal</a> - Muestra la próxima ruta a realizar y e mapa con la misma
     <li><a href="localhost:8080/visita">Ver visita</a> - Muestra los detalles de una sola visita
     <li><a href="localhost:8080/crear_visita">Crear visita</a> - formulario de creación de una visita
-    <li><a href="localhost:8080/administrar">Administracion rutas y visitas</a> - en esta página se podrá ver con gáficos las zonas más visitadas y los eventos más descargados.
+    <li><a>Crear evento</a> - en esta vista se muestra un formulario para la creación de un evento.</li>
+    <li><a>Crear ruta</a> - mustra las visitas y los eventos creados y aquellos a los que asistirá el usuario para poder elegirlos en una misma ruta.</li>
+    <li><a>Ver eventos creados</a> - Muestra los eventos creados por el usuario.</li>
+    <li><a>Asistencia a eventos</a> - Muestra los eventos a los que asistirá el usuario.</li>
+    <li><a>Ver evento</a> - Muestra un evento, el evento se define en la URL como /evento/[id]</li>
+    <li><a>Ver ruta</a> - Muestra una ruta, la ruta se define en la URL como /ruta/[id]</li>
+    <li><a>Crear evento</a> - Página de creación de un evento.</li>
+    <li><a>Ver eventos disponibles</a> - pagina que muestra un listado de todos los eventos.</li>
+    <li><a>Mis rutas</a> - Página que muestra un listado con las rutas creadas por el usuario.</li>
+    <li><a>Mis visitas</a> - Página que muestra un listado con las visitas creadas por el usuario.</li>
+
 </ul>
 
 <h2>Recursos</h2>
 
 Los recursos que voy a utilizar son:
 <ul>
-    <li> <a href="#">gmaps.js</a> - Librería para mostrar rutas de mapas, obtener direcciones y obtener coordenadas.
-    <li><a href="https://code.jquery.com/jquery-3.1.1.min.js">JQuery</a> (<a href="https://jquery.org/license/">MIT/Apache</a>) - librería js para simplificar la aplicación de comportamientos		
-   <li><a href="https://davidshimjs.github.io/qrcodejs/">qrcode.js</a> - librería para generar codigos qr
-   <li><a href="http://manuels.github.io/texlive.js/">texlive.js</a> - liberia para compilar el código latex y generar los pdfs
+    <li> <a href="#">gmaps.js</a> - Librería para mostrar rutas de mapas, obtener direcciones y obtener coordenadas.</li>
+    <li><a href="https://code.jquery.com/jquery-3.1.1.min.js">JQuery</a> (<a href="https://jquery.org/license/">MIT/Apache</a>) - librería js para simplificar la aplicación de comportamientos	</li>	
+   <li><a href="https://davidshimjs.github.io/qrcodejs/">qrcode.js</a> - librería para generar codigos qr</li>
+   <li><a href="http://manuels.github.io/jsPDF.js/">jsPDF.js</a> - liberia para compilar el código latex y generar los pdfs</li>
+
 </ul>
 
 <img src="schema.png">
