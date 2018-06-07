@@ -4,9 +4,10 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
-<%@ include file="../jspf/header.jspf"%>
+<%@ include file="../jspf/cabecera.jspf"%>
+<%@ include file="../jspf/navbar.jspf"%>
 
-<div class="starter-template">
+<div id="page-wrapper">
 	<h1>Logout</h1>
 	<p class="lead">¿Estás seguro que deseas salir?</p>
 
@@ -16,4 +17,4 @@
 	</form>		
 </div>
 
-<%@ include file="../jspf/footer.jspf"%>
+<%@ include file="../jspf/pie.jspf"%>

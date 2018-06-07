@@ -9,7 +9,7 @@
                             Datos del evento
                             
                              <form action = "/asistirEvento" method = "post">
-        						<input type="submit" name="evento" class="btn btn-success" value="${evento.getId()}" />
+        						<button type="submit" name="evento" class="btn btn-success" value="${evento.getId()}">Asistir a evento</button>
    								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 
    							 </form>

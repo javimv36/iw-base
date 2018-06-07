@@ -51,9 +51,11 @@ public class RootController {
 		addUserToSession(session, principal);
 		User u = entityManager.find(User.class, 
 				((User)session.getAttribute("user")).getId());
-		Ruta ruta = u.getRutas().get(u.getRutas().size()-1);
-		model.addAttribute("ruta", ruta);
-		
+		List<Ruta> rutas = u.getRutas();
+		if(!rutas.isEmpty()) {
+			Ruta ruta = rutas.get(rutas.size()-1);
+			model.addAttribute("ruta", ruta);
+		}
 		return "home";
 	}
 	
@@ -115,15 +117,12 @@ public class RootController {
 	
 	@GetMapping({"/asistencia"})
 	public String asistencia(Model m,  HttpSession session) {
-		List<Evento> eventos = null;
-		try {
-			eventos=(List<Evento>)entityManager.createNamedQuery("todosEventos").getResultList();
-		}catch (NoResultException ex) {
-			return "403";
-		}
-		m.addAttribute("eventos", eventos);
+		User u = entityManager.find(User.class, 
+				((User)session.getAttribute("user")).getId());
 		
-		log.info("Cargados " + eventos.size() + " eventos ...");
+		List<Evento> eventos = u.getAsisteEventos();
+		m.addAttribute("eventos", eventos);
+		log.info("Cargados " + eventos.size() + " eventos para " + u.getLogin() + " ...");
 		
 		return "asistencia";
 	}
@@ -173,10 +172,14 @@ public class RootController {
 		m.addAttribute("eventos", eventos);
 		log.info("Cargados " + eventos.size() + " eventos para " + u.getLogin() + " ...");
 		
+		eventos.addAll(u.getAsisteEventos());
+		m.addAttribute("eventos", eventos);
+		
 		List<Visita> visitas = u.getVisitas();
 		m.addAttribute("visitas", visitas);
 		log.info("Cargadas " + visitas.size() + " visitas para " + u.getLogin() + " ...");
 				
+		
 		return "crear_ruta";
 	}
 	
