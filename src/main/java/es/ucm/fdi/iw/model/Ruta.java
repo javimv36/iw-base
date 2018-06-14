@@ -16,7 +16,11 @@ import javax.persistence.OneToMany;
 	@NamedQuery(
 			name="buscaRuta",
 			query="select r from Ruta r where r.id = :rut")
-	})
+	,
+	@NamedQuery(
+			name="borraRuta",
+			query="delete from Ruta r where r.id = :rut")
+})
 public class Ruta {
 	private long id;
 	private int importeTotal;

@@ -8,6 +8,12 @@
                         <div class="panel-heading">
                             Datos de la ruta
                             <button type="button" id="cmd" class="btn btn-success">Generar PDF</button>
+                             <button type="button" id="resumen" class="btn btn-outline btn-success">PDF resúmen</button>
+                           	<form action = "/borrar-ruta" method = "post">
+        						<button type="submit" name="ruta" class="btn btn-danger" value="${ruta.getId()}">Eliminar ruta</button>
+   								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                
+   							 </form>
                         </div>
                         <div class="panel-body">
                             <div class="row">

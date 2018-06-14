@@ -184,13 +184,15 @@ public class RootController {
 	}
 	
 	@RequestMapping(path="/visita/{v}", method = RequestMethod.GET)
-	public String visita(@PathVariable @NumberFormat long v, Model m) {
+	public String visita(@PathVariable @NumberFormat long v, Model m,  HttpSession session) {
 		Visita vis = null;
 		try {
 			vis=(Visita)entityManager.createNamedQuery("buscaVisita").setParameter("vis", v).getSingleResult();
 		}catch (NoResultException ex) {
 			return "403";
 		}
+		if (vis == null || vis.getCreador().getId()!=((User)session.getAttribute("user")).getId())
+			return "403";
 		m.addAttribute("visita", vis);
 		return "visita";
 	}
@@ -208,15 +210,34 @@ public class RootController {
 	}
 	
 	@RequestMapping(path="/ruta/{r}", method = RequestMethod.GET)
-	public String ruta(@PathVariable @NumberFormat long r, Model m) {
+	public String ruta(@PathVariable @NumberFormat long r, Model m, HttpSession session) {
 		Ruta rut = null;
 		try {
 			rut=(Ruta)entityManager.createNamedQuery("buscaRuta").setParameter("rut", r).getSingleResult();
 		}catch (NoResultException ex) {
 			return "403";
 		}
+		if (rut == null || rut.getCreador().getId()!=((User)session.getAttribute("user")).getId())
+			return "403";
 		m.addAttribute("ruta", rut);
 		return "ruta";
+	}
+	
+	@RequestMapping(value = "/borrar-ruta", method = RequestMethod.POST)
+	@Transactional
+	public String borrarRuta(
+			@RequestParam long ruta,
+			HttpSession session
+			)
+	{
+		Ruta r = (Ruta)entityManager.createNamedQuery("buscaRuta").setParameter("rut", ruta).getSingleResult();
+		if (r!= null && r.getCreador().getId()==((User)session.getAttribute("user")).getId()) {
+			entityManager.createNamedQuery("borraRuta").setParameter("rut", ruta);
+			entityManager.remove(r);
+			entityManager.flush();
+			return "home";
+		}
+		else return "403";
 	}
 	
 	@RequestMapping(value = "/asistirEvento", method = RequestMethod.POST)
@@ -241,6 +262,7 @@ public class RootController {
 			
 		return "home";
 	}
+	
 	@RequestMapping(value = "/addVisita", method = RequestMethod.POST)
 	@Transactional
 	public String addVisita(
@@ -313,7 +335,7 @@ public class RootController {
 		r.setFecha(fecha);
 		r.setCreador(((User)session.getAttribute("user")));
 		entityManager.persist(r);
-		
+		entityManager.flush();
 		log.info("Añadiendo " + eventos.length + " eventos a la ruta " + r.getId() + " ... eventos : "+ eventos[0] + " ...");
 		if (eventos[0]!=0) {
 			Evento eve = null;

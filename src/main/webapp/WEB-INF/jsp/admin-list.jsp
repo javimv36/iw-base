@@ -27,7 +27,7 @@
 	<tbody>
 	<c:forEach items="${visitas}" var="v">
 		<tr>
-		<td>${v.id}<td>${v.direccion}<td>${v.fecha}
+		<td><a href="/visita/${v.id}">${v.id}</a><td>${v.direccion}<td>${v.fecha}
 		</tr>	
 	</c:forEach>
 	</tbody>
@@ -41,7 +41,7 @@
 	<tbody>
 	<c:forEach items="${eventos}" var="e">
 		<tr>
-		<td>${e.id}<td>${e.direccion}<td>${e.precio}
+		<td><a href="/evento/${e.id}">${e.id}</a><td>${e.direccion}<td>${e.precio}
 		</tr>	
 	</c:forEach>
 	</tbody>
